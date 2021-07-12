@@ -13,6 +13,7 @@
 		EB3314EE2698C03B0072661C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB3314ED2698C03B0072661C /* Preview Assets.xcassets */; };
 		EB3314F92698C03B0072661C /* ThinkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3314F82698C03B0072661C /* ThinkTests.swift */; };
 		EB3315042698C03B0072661C /* ThinkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3315032698C03B0072661C /* ThinkUITests.swift */; };
+		EB331514269A1AA10072661C /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB331513269A1AA10072661C /* Colors.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,9 @@
 		EB3314FF2698C03B0072661C /* ThinkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThinkUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB3315032698C03B0072661C /* ThinkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThinkUITests.swift; sourceTree = "<group>"; };
 		EB3315052698C03B0072661C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EB3315112698C7C40072661C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		EB331512269A19090072661C /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
+		EB331513269A1AA10072661C /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +79,8 @@
 		EB3314DA2698C0390072661C = {
 			isa = PBXGroup;
 			children = (
+				EB331512269A19090072661C /* CHANGELOG.md */,
+				EB3315112698C7C40072661C /* README.md */,
 				EB3314E52698C0390072661C /* Think */,
 				EB3314F72698C03B0072661C /* ThinkTests */,
 				EB3315022698C03B0072661C /* ThinkUITests */,
@@ -98,6 +104,7 @@
 				EB3314E62698C0390072661C /* ThinkApp.swift */,
 				EB3314E82698C0390072661C /* ContentView.swift */,
 				EB3314EA2698C03B0072661C /* Assets.xcassets */,
+				EB331513269A1AA10072661C /* Colors.xcassets */,
 				EB3314EF2698C03B0072661C /* Info.plist */,
 				EB3314EC2698C03B0072661C /* Preview Content */,
 			);
@@ -215,6 +222,7 @@
 			knownRegions = (
 				en,
 				Base,
+				fr,
 			);
 			mainGroup = EB3314DA2698C0390072661C;
 			productRefGroup = EB3314E42698C0390072661C /* Products */;
@@ -233,6 +241,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB331514269A1AA10072661C /* Colors.xcassets in Resources */,
 				EB3314EE2698C03B0072661C /* Preview Assets.xcassets in Resources */,
 				EB3314EB2698C03B0072661C /* Assets.xcassets in Resources */,
 			);
