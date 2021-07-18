@@ -7,5 +7,6 @@
 - Colors
 - Empty Readme
 - Traduction
-- Logo
+- Logo (todo https://makeappicon.com/)
+- Font
 
