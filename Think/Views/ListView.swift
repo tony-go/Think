@@ -8,17 +8,25 @@
 import SwiftUI
 
 struct ListView: View {
+
+    
     var body: some View {
         ZStack{
             Color.accentColor
                 .edgesIgnoringSafeArea(.all)
             NavigationView {
                 ScrollView {
-                    NavigationLink(
-                        destination: RecordView.init(),
-                        label: {
-                            Text("baseline").foregroundColor(Color.white)
-                        })
+                    Header(
+                        title: "Your audios",
+                        subtitle: "Select one to edit it.",
+                        action: {}
+                    )
+                    
+//                    NavigationLink(
+//                        destination: RecordView.init(),
+//                        label: {
+//                            Text("baseline").foregroundColor(Color.white)
+//                        })
                 }
             }
             
