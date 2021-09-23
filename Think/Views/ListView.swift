@@ -8,28 +8,32 @@
 import SwiftUI
 
 struct ListView: View {
-
+    var records: [Record] = [Record(title: "Hello", description: "lol"), Record(title: "Salut Ous", description: "Llol 2")]
     
     var body: some View {
-        ZStack{
-            Color.accentColor
-                .edgesIgnoringSafeArea(.all)
-            NavigationView {
+        NavigationView {
+            ZStack {
+                Color.accentColor
+                    .edgesIgnoringSafeArea(.all)
                 ScrollView {
-                    Header(
-                        title: "Your audios",
+                    Header( // TODO: add trad here!
+                        title: "Yodur audios",
                         subtitle: "Select one to edit it.",
                         action: {}
                     )
                     
-//                    NavigationLink(
-//                        destination: RecordView.init(),
-//                        label: {
-//                            Text("baseline").foregroundColor(Color.white)
-//                        })
+                    VStack {
+                        ForEach(records, id: \.self.id) { record in
+                            NavigationLink(
+                                destination: RecordView(record: record),
+                                label: {
+                                    RecordItem(title: record.title, action: {})
+                                })
+                        }
+                    }
                 }
-            }
-            
+            }.navigationBarBackButtonHidden(/*@START_MENU_TOKEN@*/false/*@END_MENU_TOKEN@*/)
+            // TODO: white color for back button
         }
     }
 }
@@ -37,5 +41,6 @@ struct ListView: View {
 struct ListView_Previews: PreviewProvider {
     static var previews: some View {
         ListView().preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/)
+        // ListView()
     }
 }

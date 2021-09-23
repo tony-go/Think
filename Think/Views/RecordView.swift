@@ -8,13 +8,15 @@
 import SwiftUI
 
 struct RecordView: View {
+    let record: Record
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text(self.record.title)
     }
 }
 
 struct RecordView_Previews: PreviewProvider {
     static var previews: some View {
-        RecordView()
+        RecordView(record: Record(title: "Hello", description: "lol"))
     }
 }
