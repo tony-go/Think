@@ -10,8 +10,24 @@ import SwiftUI
 struct RecordView: View {
     let record: Record
     
+    @State private var title = ""
+    @State private var description = ""
+    
+    init(record: Record) {
+        self.record = record
+        self.title = record.title
+    }
+    
     var body: some View {
-        Text(self.record.title)
+        Form {
+            // TODO: add trad key
+            Text("Your memo")
+            TextField("Title", text: $title)
+            TextField("Description", text: $description)
+            Button("Save memo") {
+                // TODO
+            }.foregroundColor(.blue)
+        }
     }
 }
 
