@@ -36,12 +36,11 @@ struct Header: View {
     public var subtitle = String()
     public var actionIconName = "plus"
     public var action: () -> Void
-
     
     var body: some View {
         RoundedRectangle(cornerRadius: 25.5)
             .fill(
-                LinearGradient(gradient: Gradient(colors: [Color.green, Color.blue]), startPoint: /*@START_MENU_TOKEN@*/.leading/*@END_MENU_TOKEN@*/, endPoint: /*@START_MENU_TOKEN@*/.trailing/*@END_MENU_TOKEN@*/)
+                LinearGradient(gradient: Gradient(colors: [Color.purple, Color.blue]), startPoint: /*@START_MENU_TOKEN@*/.leading/*@END_MENU_TOKEN@*/, endPoint: /*@START_MENU_TOKEN@*/.trailing/*@END_MENU_TOKEN@*/)
             )
             .frame(
                 width: UIScreen.main.bounds.width - 30,

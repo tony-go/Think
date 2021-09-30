@@ -32,7 +32,7 @@ struct ListView: View {
                     }
                 }
             }
-            .navigationBarTitle("Change me 😆")
+            .navigationBarTitle("My records")
         }
         .navigationViewStyle(StackNavigationViewStyle())
         .accentColor(Color("NavigationBarColor"))
