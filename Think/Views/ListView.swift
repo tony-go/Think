@@ -8,13 +8,12 @@
 import SwiftUI
 
 struct ListView: View {
+    
     var records: [Record] = [Record(title: "Hello", description: "lol"), Record(title: "Salut Ous", description: "Llol 2")]
     
     var body: some View {
         NavigationView {
             ZStack {
-                Color.accentColor
-                    .edgesIgnoringSafeArea(.all)
                 ScrollView {
                     Header( // TODO: add trad here!
                         title: "Yodur audios",
@@ -23,7 +22,7 @@ struct ListView: View {
                     )
                     
                     VStack {
-                        ForEach(records, id: \.self.id) { record in
+                        ForEach(self.records, id: \.self.id) { record in
                             NavigationLink(
                                 destination: RecordView(record: record),
                                 label: {
@@ -32,15 +31,18 @@ struct ListView: View {
                         }
                     }
                 }
-            }.navigationBarBackButtonHidden(/*@START_MENU_TOKEN@*/false/*@END_MENU_TOKEN@*/)
-            // TODO: white color for back button
+            }
+            .navigationBarTitle("Change me 😆")
         }
+        .navigationViewStyle(StackNavigationViewStyle())
+        .accentColor(Color("NavigationBarColor"))
+
     }
 }
 
 struct ListView_Previews: PreviewProvider {
     static var previews: some View {
-        ListView().preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/)
+        ListView().preferredColorScheme(.dark)
         // ListView()
     }
 }
