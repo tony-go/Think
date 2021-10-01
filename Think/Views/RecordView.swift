@@ -12,29 +12,44 @@ struct ActionBar: View {
         ZStack {
             Rectangle()
                .fill(Color("ItemBackground"))
-               .frame(height: 80)
+               .frame(height: 70)
             HStack {
                 Button(action: {}) {
-                    Image(systemName: "play")
-                        .foregroundColor(Color("NavigationBarColor"))
-                        .font(.title2)
-                }.offset(x: 70)
+                    ZStack {
+                        Circle()
+                            .fill(Color("ButtonBackground"))
+                            .frame(width: 50, height: 50)
+                        Image(systemName: "play")
+                            .foregroundColor(Color("NavigationBarColor"))
+                            .font(.title2)
+                    }
+                }.offset(x: 70, y: -35)
                 Spacer()
                 Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
-                    Circle()
-                        .fill(Color.red)
-                        .frame(width: 70, height: 70)
+                    ZStack {
+                        Circle()
+                            .fill(Color.red)
+                            .frame(width: 70, height: 70)
+                        Image(systemName: "plus")
+                            .foregroundColor(Color("NavigationBarColor"))
+                            .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                    }
                 }
-                .offset(y: -23)
+                .offset(y: -35)
                 Spacer()
                 Button(action: {}) {
-                    Image(systemName: "pencil")
-                        .foregroundColor(Color("NavigationBarColor"))
-                        .font(.title2)
-                }.offset(x: -70)
+                    ZStack {
+                        Circle()
+                            .fill(Color("ButtonBackground"))
+                            .frame(width: 50, height: 50)
+                        Image(systemName: "pencil")
+                            .foregroundColor(Color("NavigationBarColor"))
+                            .font(.title2)
+                    }
+                }.offset(x: -70, y: -35)
             }
         }
-        .ignoresSafeArea()
+        .edgesIgnoringSafeArea(.bottom)
     }
 }
 
