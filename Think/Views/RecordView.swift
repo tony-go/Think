@@ -75,6 +75,8 @@ struct EditionForm: View {
                 Text("Save")
             }).foregroundColor(.purple)
         }
+        // Bad practice ?
+        .preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/)
     }
 }
 
