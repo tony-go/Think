@@ -56,6 +56,28 @@ struct ActionBar: View {
     }
 }
 
+// Move into another file
+struct EditionForm: View {
+    var actionSave: () -> Void
+    @Binding var title: String
+    @Binding var description: String
+    
+    var body: some View {
+        VStack {
+            Form {
+                Section(header: Text("Record information")) {
+                    TextField("Title", text: $title)
+                    TextField("Description", text: $description)
+                }
+            }.navigationTitle(Text("lol"))
+            Spacer()
+            Button(action: actionSave, label: {
+                Text("Save")
+            }).foregroundColor(.purple)
+        }
+    }
+}
+
 struct RecordView: View {
     let record: Record
     
@@ -98,11 +120,7 @@ struct RecordView: View {
         }
         .edgesIgnoringSafeArea(.bottom)
         .fullScreenCover(isPresented: $isModalPresented, content: {
-            Button(action: self.closeEditionModal, label: {
-                Text("Close")
-                    .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
-            })
-                
+            EditionForm(actionSave: self.closeEditionModal, title: $title, description: $description)
         })
     }
 }
