@@ -81,16 +81,16 @@ struct EditionForm: View {
 }
 
 struct RecordView: View {
-    let record: RecordObject
+    let sound: Sound
     
     @State private var title: String
     @State private var description: String
     @State private var isModalPresented = false
     
-    init(record: RecordObject) {
-        self.record = record
-        _title = State(initialValue: record.title)
-        _description = State(initialValue: record.description)
+    init(sound: Sound) {
+        self.sound = sound
+        _title = State(initialValue: sound.title!)
+        _description = State(initialValue: sound.desc!)
     }
     
     private func openEditionModal() {
@@ -129,6 +129,6 @@ struct RecordView: View {
 
 struct RecordView_Previews: PreviewProvider {
     static var previews: some View {
-        RecordView(record: RecordObject(title: "Hello", description: "This is my first memo")).preferredColorScheme(.dark)
+        Text("Todo")
     }
 }

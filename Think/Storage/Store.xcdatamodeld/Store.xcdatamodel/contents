@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20F71" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Record" representedClassName="Record" syncable="YES" codeGenerationType="class">
+        <attribute name="emoji" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="label" optional="YES" attributeType="String"/>
+        <attribute name="path" optional="YES" attributeType="URI"/>
+        <relationship name="fromSound" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Sound" inverseName="toRecords" inverseEntity="Sound"/>
+    </entity>
+    <entity name="Sound" representedClassName="Sound" syncable="YES" codeGenerationType="class">
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="desc" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="toRecords" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Record" inverseName="fromSound" inverseEntity="Record"/>
+    </entity>
+    <elements>
+        <element name="Record" positionX="-63" positionY="-18" width="128" height="104"/>
+        <element name="Sound" positionX="-54" positionY="18" width="128" height="119"/>
+    </elements>
+</model>

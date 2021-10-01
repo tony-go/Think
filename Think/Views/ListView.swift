@@ -9,10 +9,21 @@ import SwiftUI
 
 struct CreationForm: View {
     var actionSave: () -> Void
+    
     @State private var title = ""
     @State private var description = ""
+
+    @Environment(\.managedObjectContext) var managedObjectContext
     
     func onSave() {
+        let sound = Sound(context: managedObjectContext)
+        sound.title = self.title
+        sound.desc = self.description
+        sound.id = UUID()
+        sound.createdAt = Date()
+        sound.updatedAt = Date()
+        PersistenceController.shared.save()
+        
         self.actionSave()
     }
     
@@ -35,8 +46,7 @@ struct CreationForm: View {
 }
 
 struct ListView: View {
-    // fake records for testing
-    var records: [RecordObject] = [RecordObject(title: "Hello", description: "lol"), RecordObject(title: "Salut Ous", description: "Llol 2")]
+    @FetchRequest(entity: Sound.entity(), sortDescriptors: []) var sounds: FetchedResults<Sound>
     
     @State var isModalPresented = false
     
@@ -59,11 +69,11 @@ struct ListView: View {
                     )
                     
                     VStack {
-                        ForEach(self.records, id: \.self.id) { record in
+                        ForEach(self.sounds, id: \.self) { sound in
                             NavigationLink(
-                                destination: RecordView(record: record),
+                                destination: RecordView(sound: sound),
                                 label: {
-                                    RecordItem(title: record.title, action: {})
+                                    RecordItem(title: sound.title!, action: {})
                                 })
                         }
                     }
