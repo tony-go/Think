@@ -7,7 +7,10 @@
 
 import SwiftUI
 
+// TODO: move in it's own file
 struct ActionBar: View {
+    public var editAction: () -> Void
+    
     var body: some View {
         ZStack {
             Rectangle()
@@ -37,7 +40,7 @@ struct ActionBar: View {
                 }
                 .offset(y: -35)
                 Spacer()
-                Button(action: {}) {
+                Button(action: self.editAction) {
                     ZStack {
                         Circle()
                             .fill(Color("ButtonBackground"))
@@ -58,6 +61,7 @@ struct RecordView: View {
     
     @State private var title: String
     @State private var description: String
+    @State private var isModalPresented = false
     
     init(record: Record) {
         self.record = record
@@ -65,10 +69,23 @@ struct RecordView: View {
         _description = State(initialValue: record.description)
     }
     
+    private func openEditionModal() {
+        self.isModalPresented = true
+    }
+    
+    private func closeEditionModal() {
+        self.isModalPresented = false
+    }
+    
     var body: some View {
         VStack {
             VStack {
-                Header(title: self.title, subtitle: self.description, actionIconName: "play", action: {})
+                Header(
+                    title: self.title,
+                    subtitle: self.description,
+                    actionIconName: "play",
+                    action: {}
+                )
             }.padding()
             Spacer()
             ScrollView(.vertical) {
@@ -77,9 +94,16 @@ struct RecordView: View {
                     }
             }
             Spacer()
-            ActionBar().frame(alignment: .bottom)
+            ActionBar(editAction: self.openEditionModal).frame(alignment: .bottom)
         }
         .edgesIgnoringSafeArea(.bottom)
+        .fullScreenCover(isPresented: $isModalPresented, content: {
+            Button(action: self.closeEditionModal, label: {
+                Text("Close")
+                    .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+            })
+                
+        })
     }
 }
 
