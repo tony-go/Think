@@ -7,9 +7,46 @@
 
 import SwiftUI
 
+struct CreationForm: View {
+    var actionSave: () -> Void
+    @State private var title = ""
+    @State private var description = ""
+    
+    func onSave() {
+        self.actionSave()
+    }
+    
+    var body: some View {
+        VStack {
+            Form {
+                Section(header: Text("recordView.creationModal.formLabel")) {
+                    TextField("recordView.creationModal.titlePlaceholder", text: $title)
+                    TextField("recordView.creationModal.descriptionPlaceholder", text: $description)
+                }
+            }
+            Spacer()
+            Button(action: actionSave, label: {
+                Text("recordView.creationModal.saveButtonLabel")
+            }).foregroundColor(.purple)
+        }
+        // Bad practice ?
+        .preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/)
+    }
+}
+
 struct ListView: View {
     // fake records for testing
-    var records: [Record] = [Record(title: "Hello", description: "lol"), Record(title: "Salut Ous", description: "Llol 2")]
+    var records: [RecordObject] = [RecordObject(title: "Hello", description: "lol"), RecordObject(title: "Salut Ous", description: "Llol 2")]
+    
+    @State var isModalPresented = false
+    
+    func openModal() {
+        self.isModalPresented = true
+    }
+    
+    func closeModal() {
+        self.isModalPresented = false
+    }
     
     var body: some View {
         NavigationView {
@@ -18,7 +55,7 @@ struct ListView: View {
                     Header( // TODO: add trad here!
                         title: Text("listView.title"),
                         subtitle: Text("listView.subtitle"),
-                        action: {}
+                        action: self.openModal
                     )
                     
                     VStack {
@@ -36,6 +73,9 @@ struct ListView: View {
         }
         .navigationViewStyle(StackNavigationViewStyle())
         .accentColor(Color("NavigationBarColor"))
+        .sheet(isPresented: $isModalPresented, content: {
+            CreationForm(actionSave: self.closeModal)
+        })
 
     }
 }

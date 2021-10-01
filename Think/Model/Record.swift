@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Record: ObservableObject {
+class RecordObject: ObservableObject {
     let title: String
     let description: String
     var id = UUID()

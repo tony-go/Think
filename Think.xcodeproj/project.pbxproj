@@ -23,6 +23,8 @@
 		EB5FD61E270592B5005D6009 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB5FD61D270592B5005D6009 /* Launch Screen.storyboard */; };
 		EB9335CC26B1F92C00689249 /* RecordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9335CB26B1F92C00689249 /* RecordItem.swift */; };
 		EBA83D5126B28C3F004040F4 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA83D5026B28C3F004040F4 /* Record.swift */; };
+		EBFBBAF1270719AF00B48CE9 /* Store.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EBFBBAEF270719AF00B48CE9 /* Store.xcdatamodeld */; };
+		EBFBBAF327071B5500B48CE9 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFBBAF227071B5500B48CE9 /* PersistenceController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +70,8 @@
 		EB5FD61D270592B5005D6009 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		EB9335CB26B1F92C00689249 /* RecordItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordItem.swift; sourceTree = "<group>"; };
 		EBA83D5026B28C3F004040F4 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
+		EBFBBAF0270719AF00B48CE9 /* Store.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Store.xcdatamodel; sourceTree = "<group>"; };
+		EBFBBAF227071B5500B48CE9 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +171,7 @@
 		EB3314E52698C0390072661C /* Think */ = {
 			isa = PBXGroup;
 			children = (
+				EBFBBAEE2707199500B48CE9 /* Storage */,
 				EBA83D4F26B28C10004040F4 /* Model */,
 				EB0079E226A4539100AA41B1 /* Ui */,
 				EB0079DF26A1653C00AA41B1 /* Supporting Files */,
@@ -211,6 +216,15 @@
 				EBA83D5026B28C3F004040F4 /* Record.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		EBFBBAEE2707199500B48CE9 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				EBFBBAEF270719AF00B48CE9 /* Store.xcdatamodeld */,
+				EBFBBAF227071B5500B48CE9 /* PersistenceController.swift */,
+			);
+			path = Storage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -350,11 +364,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB0079E426A453A700AA41B1 /* Header.swift in Sources */,
+				EBFBBAF1270719AF00B48CE9 /* Store.xcdatamodeld in Sources */,
 				EB3314E92698C0390072661C /* ListView.swift in Sources */,
 				EBA83D5126B28C3F004040F4 /* Record.swift in Sources */,
 				EB9335CC26B1F92C00689249 /* RecordItem.swift in Sources */,
 				EB0079E126A1661C00AA41B1 /* RecordView.swift in Sources */,
 				EB3314E72698C0390072661C /* ThinkApp.swift in Sources */,
+				EBFBBAF327071B5500B48CE9 /* PersistenceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -687,6 +703,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		EBFBBAEF270719AF00B48CE9 /* Store.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				EBFBBAF0270719AF00B48CE9 /* Store.xcdatamodel */,
+			);
+			currentVersion = EBFBBAF0270719AF00B48CE9 /* Store.xcdatamodel */;
+			path = Store.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = EB3314DB2698C0390072661C /* Project object */;
 }

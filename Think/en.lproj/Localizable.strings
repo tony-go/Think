@@ -18,6 +18,12 @@
 "listView.title" = "Your records";
 "listView.subtitle" = "Select one to edit it";
 
+// MODAL
+"recordView.creationModal.formLabel" = "Create a new record";
+"recordView.creationModal.titlePlaceholder" = "Title";
+"recordView.creationModal.descriptionPlaceholder" = "Description";
+"recordView.creationModal.saveButtonLabel" = "Create";
+
 /**
  
  RECORD VIEW

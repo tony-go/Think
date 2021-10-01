@@ -18,6 +18,12 @@
 "listView.title" = "Vos sons";
 "listView.subtitle" = "Choisi un son pour le modifier";
 
+// MODAL
+"recordView.creationModal.formLabel" = "Créer un nouveau son";
+"recordView.creationModal.titlePlaceholder" = "Titre";
+"recordView.creationModal.descriptionPlaceholder" = "Description";
+"recordView.creationModal.saveButtonLabel" = "Créer";
+
 /**
  
  RECORD VIEW

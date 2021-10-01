@@ -81,13 +81,13 @@ struct EditionForm: View {
 }
 
 struct RecordView: View {
-    let record: Record
+    let record: RecordObject
     
     @State private var title: String
     @State private var description: String
     @State private var isModalPresented = false
     
-    init(record: Record) {
+    init(record: RecordObject) {
         self.record = record
         _title = State(initialValue: record.title)
         _description = State(initialValue: record.description)
@@ -129,6 +129,6 @@ struct RecordView: View {
 
 struct RecordView_Previews: PreviewProvider {
     static var previews: some View {
-        RecordView(record: Record(title: "Hello", description: "This is my first memo")).preferredColorScheme(.dark)
+        RecordView(record: RecordObject(title: "Hello", description: "This is my first memo")).preferredColorScheme(.dark)
     }
 }
