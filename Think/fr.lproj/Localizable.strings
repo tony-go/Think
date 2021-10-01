@@ -6,4 +6,26 @@
   
 */
 
-"baseline" = "yoyo";
+"baseline" = "Compose as you think!";
+
+/**
+ 
+ LIST VIEW
+ 
+ */
+
+"listView.navigationBarTitle" = "Mes sons";
+"listView.title" = "Vos sons";
+"listView.subtitle" = "Choisi un son pour le modifier";
+
+/**
+ 
+ RECORD VIEW
+ 
+ */
+
+// MODAL
+"recordView.editionModal.formLabel" = "Information du son";
+"recordView.editionModal.titlePlaceholder" = "Titre";
+"recordView.editionModal.descriptionPlaceholder" = "Description";
+"recordView.editionModal.saveButtonLabel" = "Sauvegarder";

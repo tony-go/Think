@@ -65,14 +65,14 @@ struct EditionForm: View {
     var body: some View {
         VStack {
             Form {
-                Section(header: Text("Record information")) {
-                    TextField("Title", text: $title)
-                    TextField("Description", text: $description)
+                Section(header: Text("recordView.editionModal.formLabel")) {
+                    TextField("recordView.editionModal.titlePlaceholder", text: $title)
+                    TextField("recordView.editionModal.descriptionPlaceholder", text: $description)
                 }
-            }.navigationTitle(Text("lol"))
+            }
             Spacer()
             Button(action: actionSave, label: {
-                Text("Save")
+                Text("recordView.editionModal.saveButtonLabel")
             }).foregroundColor(.purple)
         }
         // Bad practice ?
@@ -105,8 +105,8 @@ struct RecordView: View {
         VStack {
             VStack {
                 Header(
-                    title: self.title,
-                    subtitle: self.description,
+                    title: Text(self.title),
+                    subtitle: Text(self.description),
                     actionIconName: "play",
                     action: {}
                 )

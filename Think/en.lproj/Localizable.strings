@@ -7,4 +7,25 @@
 */
 
 "baseline" = "Compose as you think!";
-"navigationTitle" = "List of records";
+
+/**
+ 
+ LIST VIEW
+ 
+ */
+
+"listView.navigationBarTitle" = "My records";
+"listView.title" = "Your records";
+"listView.subtitle" = "Select one to edit it";
+
+/**
+ 
+ RECORD VIEW
+ 
+ */
+
+// MODAL
+"recordView.editionModal.formLabel" = "Record information";
+"recordView.editionModal.titlePlaceholder" = "Title";
+"recordView.editionModal.descriptionPlaceholder" = "Description";
+"recordView.editionModal.saveButtonLabel" = "Save";

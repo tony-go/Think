@@ -8,10 +8,10 @@
 import SwiftUI
 
 private struct Title: View {
-    public var label = String()
+    public var Label = Text(verbatim: "")
     
     var body: some View {
-        Text(self.label)
+        self.Label
             .foregroundColor(.white)
             .font(.largeTitle).bold()
             .frame(maxWidth: .infinity, alignment: .topLeading)
@@ -20,10 +20,10 @@ private struct Title: View {
 }
 
 private struct SubTitle: View {
-    public var label = String()
+    public var Label = Text(verbatim: "")
     
     var body: some View {
-        Text(self.label)
+        self.Label
             .foregroundColor(.white)
             .font(.headline)
             .frame(maxWidth: .infinity, alignment: .topLeading)
@@ -32,8 +32,8 @@ private struct SubTitle: View {
 }
 
 struct Header: View {
-    public var title = String()
-    public var subtitle = String()
+    public var title = Text(verbatim: "")
+    public var subtitle = Text(verbatim: "")
     public var actionIconName = "plus"
     public var action: () -> Void
     
@@ -50,8 +50,8 @@ struct Header: View {
             .overlay(
                 HStack {
                     VStack {
-                        Title(label: self.title)
-                        SubTitle(label: self.subtitle)
+                        Title(Label: self.title)
+                        SubTitle(Label: self.subtitle)
                     }
                     Button(action: self.action) {
                         Image(systemName: self.actionIconName)
@@ -65,8 +65,8 @@ struct Header: View {
 struct Header_Previews: PreviewProvider {
     static var previews: some View {
         Header(
-            title: "Hi,",
-            subtitle: "How are you ?",
+            title: Text("Hi,"),
+            subtitle: Text("How are you ?"),
             actionIconName: "plus",
             action: {
                debugPrint("action")

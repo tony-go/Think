@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ListView: View {
-    
+    // fake records for testing
     var records: [Record] = [Record(title: "Hello", description: "lol"), Record(title: "Salut Ous", description: "Llol 2")]
     
     var body: some View {
@@ -16,8 +16,8 @@ struct ListView: View {
             ZStack {
                 ScrollView {
                     Header( // TODO: add trad here!
-                        title: "Yodur audios",
-                        subtitle: "Select one to edit it.",
+                        title: Text("listView.title"),
+                        subtitle: Text("listView.subtitle"),
                         action: {}
                     )
                     
@@ -32,7 +32,7 @@ struct ListView: View {
                     }
                 }
             }
-            .navigationBarTitle("My records")
+            .navigationBarTitle(Text("listView.navigationBarTitle"))
         }
         .navigationViewStyle(StackNavigationViewStyle())
         .accentColor(Color("NavigationBarColor"))
@@ -43,6 +43,6 @@ struct ListView: View {
 struct ListView_Previews: PreviewProvider {
     static var previews: some View {
         ListView().preferredColorScheme(.dark)
-        // ListView()
+            .environment(\.locale, .init(identifier: "en"))
     }
 }
