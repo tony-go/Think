@@ -37,6 +37,7 @@ class SoundEntity: NSManagedObject {
         newTitle: String,
         newDescription: String
     ) -> Optional<Sound> {
+        // TODO: factorize with comment above (getRecord)
         let request: NSFetchRequest<Sound> = Sound.fetchRequest()
         request.predicate = NSPredicate(format: "id == %@", id as CVarArg)
         
@@ -56,5 +57,20 @@ class SoundEntity: NSManagedObject {
         }
         
         return sound
+    }
+    
+    static func delete(by id: UUID) -> Optional<UUID> {
+        // TODO: factorize with comment above (getRecord)
+        let request: NSFetchRequest<Sound> = Sound.fetchRequest()
+        request.predicate = NSPredicate(format: "id == %@", id as CVarArg)
+        
+        guard let sounds = try? SoundEntity.context.fetch(request) else {
+            return nil
+        }
+        
+        let sound = sounds[0]
+        
+        SoundEntity.context.delete(sound)
+        return id
     }
 }

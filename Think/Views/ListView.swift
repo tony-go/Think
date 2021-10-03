@@ -62,7 +62,9 @@ struct ListView: View {
     }
     
     func deleteItem(id: UUID) {
-        print("delete \(id)")
+        if let id = SoundEntity.delete(by: id) {
+            print("\(id) deleted")
+        }
     }
     
     var body: some View {
