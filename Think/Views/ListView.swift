@@ -61,6 +61,10 @@ struct ListView: View {
         self.isModalPresented = false
     }
     
+    func deleteItem(id: UUID) {
+        print("delete \(id)")
+    }
+    
     var body: some View {
         NavigationView {
             ZStack {
@@ -76,7 +80,11 @@ struct ListView: View {
                             NavigationLink(
                                 destination: RecordView(sound: sound),
                                 label: {
-                                    RecordItem(title: sound.title!, action: {})
+                                    RecordItem(
+                                        title: sound.title!,
+                                        id: sound.id!,
+                                        onDelete: self.deleteItem
+                                    )
                                 })
                         }
                     }
