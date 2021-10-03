@@ -62,6 +62,7 @@ struct EditionForm: View {
     var closeModal: () -> Void
     var sound: Sound
 
+    // Move those ones up, to have an update
     @State var title: String
     @State var description: String
     
@@ -76,12 +77,12 @@ struct EditionForm: View {
     }
     
     func save() {
-        if let sound = SoundEntity.getRecord(id: self.sound.id!) {
-            sound.title = self.title
-            sound.desc = self.description
-            sound.updatedAt = Date()
-            
-            PersistenceController.shared.save()
+        if let updatedSound = SoundEntity.saveRecord(
+            id: self.sound.id!,
+            newTitle: self.title,
+            newDescription: self.description
+        ) {
+            print("Sound \(updatedSound.id!) updated!")
         } else {
             print("Imposible to save sound '\(self.sound.title!)' (id:\(self.sound.id!)")
         }
@@ -108,6 +109,7 @@ struct EditionForm: View {
 }
 
 struct RecordView: View {
+    // TODO: bind it to the store
     let sound: Sound
     
     @State private var isModalPresented = false

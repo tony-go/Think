@@ -21,14 +21,40 @@ class SoundEntity: NSManagedObject {
 //        return sounds
 //    }
     
-    static func getRecord(id: UUID) -> Optional<Sound> {
+//    static func getRecord(id: UUID) -> Optional<Sound> {
+//        let request: NSFetchRequest<Sound> = Sound.fetchRequest()
+//        request.predicate = NSPredicate(format: "id == %@", id as CVarArg)
+//        
+//        guard let sound = try? SoundEntity.context.fetch(request) else {
+//            return nil
+//        }
+//        
+//        return sound[0]
+//    }
+    
+    static func saveRecord(
+        id: UUID,
+        newTitle: String,
+        newDescription: String
+    ) -> Optional<Sound> {
         let request: NSFetchRequest<Sound> = Sound.fetchRequest()
         request.predicate = NSPredicate(format: "id == %@", id as CVarArg)
         
-        guard let sound = try? SoundEntity.context.fetch(request) else {
+        guard let sounds = try? SoundEntity.context.fetch(request) else {
             return nil
         }
         
-        return sound[0]
+        let sound = sounds[0]
+        sound.title = newTitle
+        sound.desc = newDescription
+        sound.updatedAt = Date()
+        
+        do {
+            try SoundEntity.context.save()
+        } catch {
+            return nil
+        }
+        
+        return sound
     }
 }
