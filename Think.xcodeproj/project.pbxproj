@@ -22,7 +22,7 @@
 		EB331514269A1AA10072661C /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB331513269A1AA10072661C /* Colors.xcassets */; };
 		EB5FD61E270592B5005D6009 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB5FD61D270592B5005D6009 /* Launch Screen.storyboard */; };
 		EB9335CC26B1F92C00689249 /* RecordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9335CB26B1F92C00689249 /* RecordItem.swift */; };
-		EBA83D5126B28C3F004040F4 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA83D5026B28C3F004040F4 /* Record.swift */; };
+		EBA83D5126B28C3F004040F4 /* SoundEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA83D5026B28C3F004040F4 /* SoundEntity.swift */; };
 		EBFBBAF1270719AF00B48CE9 /* Store.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EBFBBAEF270719AF00B48CE9 /* Store.xcdatamodeld */; };
 		EBFBBAF327071B5500B48CE9 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFBBAF227071B5500B48CE9 /* PersistenceController.swift */; };
 /* End PBXBuildFile section */
@@ -69,7 +69,7 @@
 		EB331513269A1AA10072661C /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		EB5FD61D270592B5005D6009 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		EB9335CB26B1F92C00689249 /* RecordItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordItem.swift; sourceTree = "<group>"; };
-		EBA83D5026B28C3F004040F4 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
+		EBA83D5026B28C3F004040F4 /* SoundEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundEntity.swift; sourceTree = "<group>"; };
 		EBFBBAF0270719AF00B48CE9 /* Store.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Store.xcdatamodel; sourceTree = "<group>"; };
 		EBFBBAF227071B5500B48CE9 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -213,7 +213,7 @@
 		EBA83D4F26B28C10004040F4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				EBA83D5026B28C3F004040F4 /* Record.swift */,
+				EBA83D5026B28C3F004040F4 /* SoundEntity.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -366,7 +366,7 @@
 				EB0079E426A453A700AA41B1 /* Header.swift in Sources */,
 				EBFBBAF1270719AF00B48CE9 /* Store.xcdatamodeld in Sources */,
 				EB3314E92698C0390072661C /* ListView.swift in Sources */,
-				EBA83D5126B28C3F004040F4 /* Record.swift in Sources */,
+				EBA83D5126B28C3F004040F4 /* SoundEntity.swift in Sources */,
 				EB9335CC26B1F92C00689249 /* RecordItem.swift in Sources */,
 				EB0079E126A1661C00AA41B1 /* RecordView.swift in Sources */,
 				EB3314E72698C0390072661C /* ThinkApp.swift in Sources */,

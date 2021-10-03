@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CreationForm: View {
-    var actionSave: () -> Void
+    var closeModal: () -> Void
     
     @State private var title = ""
     @State private var description = ""
@@ -24,7 +24,7 @@ struct CreationForm: View {
         sound.updatedAt = Date()
         PersistenceController.shared.save()
         
-        self.actionSave()
+        self.closeModal()
     }
     
     var body: some View {
@@ -36,7 +36,7 @@ struct CreationForm: View {
                 }
             }
             Spacer()
-            Button(action: actionSave, label: {
+            Button(action: self.onSave, label: {
                 Text("recordView.creationModal.saveButtonLabel")
             }).foregroundColor(.purple)
         }
@@ -46,8 +46,11 @@ struct CreationForm: View {
 }
 
 struct ListView: View {
-    @FetchRequest(entity: Sound.entity(), sortDescriptors: []) var sounds: FetchedResults<Sound>
-    
+    @FetchRequest(
+        entity: Sound.entity(),
+        sortDescriptors: [NSSortDescriptor(keyPath: \Sound.updatedAt, ascending: false)]
+    ) var sounds: FetchedResults<Sound>
+
     @State var isModalPresented = false
     
     func openModal() {
@@ -84,7 +87,7 @@ struct ListView: View {
         .navigationViewStyle(StackNavigationViewStyle())
         .accentColor(Color("NavigationBarColor"))
         .sheet(isPresented: $isModalPresented, content: {
-            CreationForm(actionSave: self.closeModal)
+            CreationForm(closeModal: self.closeModal)
         })
 
     }

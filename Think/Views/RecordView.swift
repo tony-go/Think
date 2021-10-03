@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreData
 
 // TODO: move in it's own file
 struct ActionBar: View {
@@ -58,9 +59,35 @@ struct ActionBar: View {
 
 // Move into another file
 struct EditionForm: View {
-    var actionSave: () -> Void
-    @Binding var title: String
-    @Binding var description: String
+    var closeModal: () -> Void
+    var sound: Sound
+
+    @State var title: String
+    @State var description: String
+    
+    @Environment(\.managedObjectContext) var managedObjectContext
+    
+    init(sound: Sound, closeModal: @escaping () -> Void) {
+        self.sound = sound
+        self.closeModal = closeModal
+        
+        _title = State(initialValue: sound.title!)
+        _description = State(initialValue: sound.desc!)
+    }
+    
+    func save() {
+        if let sound = SoundEntity.getRecord(id: self.sound.id!) {
+            sound.title = self.title
+            sound.desc = self.description
+            sound.updatedAt = Date()
+            
+            PersistenceController.shared.save()
+        } else {
+            print("Imposible to save sound '\(self.sound.title!)' (id:\(self.sound.id!)")
+        }
+        
+        self.closeModal()
+    }
     
     var body: some View {
         VStack {
@@ -71,7 +98,7 @@ struct EditionForm: View {
                 }
             }
             Spacer()
-            Button(action: actionSave, label: {
+            Button(action: self.save, label: {
                 Text("recordView.editionModal.saveButtonLabel")
             }).foregroundColor(.purple)
         }
@@ -83,15 +110,7 @@ struct EditionForm: View {
 struct RecordView: View {
     let sound: Sound
     
-    @State private var title: String
-    @State private var description: String
     @State private var isModalPresented = false
-    
-    init(sound: Sound) {
-        self.sound = sound
-        _title = State(initialValue: sound.title!)
-        _description = State(initialValue: sound.desc!)
-    }
     
     private func openEditionModal() {
         self.isModalPresented = true
@@ -105,8 +124,8 @@ struct RecordView: View {
         VStack {
             VStack {
                 Header(
-                    title: Text(self.title),
-                    subtitle: Text(self.description),
+                    title: Text(self.sound.title!),
+                    subtitle: Text(self.sound.desc!),
                     actionIconName: "play",
                     action: {}
                 )
@@ -122,7 +141,10 @@ struct RecordView: View {
         }
         .edgesIgnoringSafeArea(.bottom)
         .fullScreenCover(isPresented: $isModalPresented, content: {
-            EditionForm(actionSave: self.closeEditionModal, title: $title, description: $description)
+            EditionForm(
+                sound: self.sound,
+                closeModal: self.closeEditionModal
+            )
         })
     }
 }
