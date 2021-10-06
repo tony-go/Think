@@ -61,45 +61,42 @@ struct ListView: View {
         self.isModalPresented = false
     }
     
-    func deleteItem(id: UUID) {
-        if let id = SoundEntity.delete(by: id) {
-            print("\(id) deleted")
+    // TODO fix it
+    func deleteItem(indexSet: IndexSet) {
+        let index = indexSet[indexSet.startIndex]
+        let id = self.sounds[index].id!
+        if let uuid = SoundEntity.delete(by: id) {
+            print("\(uuid) deleted")
         }
     }
     
     var body: some View {
         NavigationView {
-            ZStack {
-                ScrollView {
-                    Header( // TODO: add trad here!
-                        title: Text("listView.title"),
-                        subtitle: Text("listView.subtitle"),
-                        action: self.openModal
-                    )
-                    
-                    VStack {
-                        ForEach(self.sounds, id: \.self) { sound in
-                            NavigationLink(
-                                destination: RecordView(sound: sound),
-                                label: {
-                                    RecordItem(
-                                        title: sound.title!,
-                                        id: sound.id!,
-                                        onDelete: self.deleteItem
-                                    )
-                                })
-                        }
-                    }
+            VStack {
+                Header( // TODO: add trad here!
+                    title: Text("listView.title"),
+                    subtitle: Text("listView.subtitle"),
+                    action: self.openModal
+                )
+                List {
+                    ForEach(self.sounds, id: \.self) { sound in
+                        NavigationLink(
+                            destination: RecordView(sound: sound),
+                            label: {
+                                RecordItem(
+                                    title: sound.title!,
+                                    id: sound.id!
+                                )
+                            })
+                    }.onDelete(perform: self.deleteItem)
                 }
             }
             .navigationBarTitle(Text("listView.navigationBarTitle"))
         }
         .navigationViewStyle(StackNavigationViewStyle())
-        .accentColor(Color("NavigationBarColor"))
         .sheet(isPresented: $isModalPresented, content: {
             CreationForm(closeModal: self.closeModal)
         })
-
     }
 }
 
