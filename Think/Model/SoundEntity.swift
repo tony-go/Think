@@ -8,7 +8,21 @@
 import Foundation
 import CoreData
 
-class SoundEntity: NSManagedObject {
+class SoundEntity: NSObject, ObservableObject {
+    @Published var sounds: [Sound]
+    
+    override init() {
+        let request: NSFetchRequest<Sound> = Sound.fetchRequest()
+        
+        do {
+            let sds = try SoundEntity.context.fetch(request)
+            self.sounds = sds;
+        } catch {
+            self.sounds = [];
+            print("Boom")
+        }
+    }
+    
     static let context = PersistenceController.shared.container.viewContext
     
 //    static func getRecords() -> [Sound] {
