@@ -43,7 +43,6 @@ struct Header: View {
                 LinearGradient(gradient: Gradient(colors: [Color.purple, Color.blue]), startPoint: /*@START_MENU_TOKEN@*/.leading/*@END_MENU_TOKEN@*/, endPoint: /*@START_MENU_TOKEN@*/.trailing/*@END_MENU_TOKEN@*/)
             )
             .frame(
-                width: UIScreen.main.bounds.width - 30,
                 height: 200,
                 alignment: .center
             )
@@ -59,6 +58,7 @@ struct Header: View {
                     .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                 }
             )
+            .padding(.horizontal)
         }
     }
 

@@ -141,6 +141,7 @@ struct RecordView: View {
             Spacer()
             ActionBar(editAction: self.openEditionModal).frame(alignment: .bottom)
         }
+        .background(Color("AccentColor"))
         .edgesIgnoringSafeArea(.bottom)
         .fullScreenCover(isPresented: $isModalPresented, content: {
             EditionForm(
