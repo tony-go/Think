@@ -13,16 +13,10 @@ struct CreationForm: View {
     @State private var title = ""
     @State private var description = ""
     
-    @Environment(\.managedObjectContext) var managedObjectContext
+    @StateObject var soundEntity = SoundEntity()
     
     private func onSave() {
-        let sound = Sound(context: managedObjectContext)
-        sound.title = self.title
-        sound.desc = self.description
-        sound.id = UUID()
-        sound.createdAt = Date()
-        sound.updatedAt = Date()
-        PersistenceController.shared.save()
+        soundEntity.create(title: self.title, description: self.description)
         
         self.closeModal()
     }
@@ -48,10 +42,7 @@ struct CreationForm: View {
 }
 
 struct ListView: View {
-    @FetchRequest(
-        entity: Sound.entity(),
-        sortDescriptors: [NSSortDescriptor(keyPath: \Sound.updatedAt, ascending: false)]
-    ) var sounds: FetchedResults<Sound>
+    @StateObject var soundEntity = SoundEntity()
     
     @State var isModalPresented = false
     
@@ -81,8 +72,8 @@ struct ListView: View {
     // TODO fix it
     func deleteItem(indexSet: IndexSet) {
         let index = indexSet[indexSet.startIndex]
-        let id = self.sounds[index].id!
-        if let uuid = SoundEntity.delete(by: id) {
+        let id = self.soundEntity.sounds[index].id!
+        if let uuid = soundEntity.delete(by: id) {
             print("\(uuid) deleted")
         }
     }
@@ -97,7 +88,7 @@ struct ListView: View {
                 )
                 
                 List {
-                    ForEach(self.sounds, id: \.self) { sound in
+                    ForEach(soundEntity.sounds, id: \.self) { sound in
                         Section {
                             HStack {
                                 RecordItem(
