@@ -55,7 +55,6 @@ class SoundEntity: ObservableObject {
             }
             
             self.fetchSounds()
-        
         }
         
     }
@@ -87,6 +86,5 @@ class SoundEntity: ObservableObject {
         }
         
         self.fetchSounds()
-        
     }
 }

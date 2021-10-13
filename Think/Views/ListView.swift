@@ -88,7 +88,7 @@ struct ListView: View {
                 )
                 
                 List {
-                    ForEach(soundEntity.sounds, id: \.self) { sound in
+                    ForEach(soundEntity.sounds) { sound in
                         Section {
                             HStack {
                                 RecordItem(
@@ -96,7 +96,7 @@ struct ListView: View {
                                     id: sound.id!
                                 )
                                 
-                                NavigationLink(destination: RecordView(sound: sound)) {
+                                NavigationLink(destination: RecordView(sound: sound, updateFn: soundEntity.update)) {
                                     EmptyView()
                                 }
                                 .frame(width: 0)
