@@ -43,7 +43,7 @@ struct Header: View {
                 LinearGradient(gradient: Gradient(colors: [Color.purple, Color.blue]), startPoint: /*@START_MENU_TOKEN@*/.leading/*@END_MENU_TOKEN@*/, endPoint: /*@START_MENU_TOKEN@*/.trailing/*@END_MENU_TOKEN@*/)
             )
             .frame(
-                height: 200,
+                height: 200.0,
                 alignment: .center
             )
             .overlay(
@@ -54,7 +54,8 @@ struct Header: View {
                     }
                     Button(action: self.action) {
                         Image(systemName: self.actionIconName)
-                    }.padding()
+                    }
+                    .padding()
                     .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                 }
             )

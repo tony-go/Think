@@ -9,4 +9,3 @@
 - Traduction
 - Logo (todo https://makeappicon.com/)
 - Font
-
