@@ -12,10 +12,10 @@ struct CreationForm: View {
     
     @State private var title = ""
     @State private var description = ""
-
+    
     @Environment(\.managedObjectContext) var managedObjectContext
     
-    func onSave() {
+    private func onSave() {
         let sound = Sound(context: managedObjectContext)
         sound.title = self.title
         sound.desc = self.description
@@ -30,18 +30,20 @@ struct CreationForm: View {
     var body: some View {
         VStack {
             Form {
-                Section(header: Text("recordView.creationModal.formLabel")) {
-                    TextField("recordView.creationModal.titlePlaceholder", text: $title)
-                    TextField("recordView.creationModal.descriptionPlaceholder", text: $description)
+                Section(header: Text(LocalizedStringKey("recordView.creationModal.formLabel"))) {
+                    Spacer()
+                    TextField(LocalizedStringKey("recordView.creationModal.titlePlaceholder"), text: $title)
+                    TextField(LocalizedStringKey("recordView.creationModal.descriptionPlaceholder"), text: $description)
                 }
             }
             Spacer()
             Button(action: self.onSave, label: {
                 Text("recordView.creationModal.saveButtonLabel")
-            }).foregroundColor(.purple)
+                    .padding()
+                    .foregroundColor(.purple)
+            })
         }
-        // Bad practice ?
-        .preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/)
+        .background(Color("AccentColor"))
     }
 }
 
@@ -50,15 +52,30 @@ struct ListView: View {
         entity: Sound.entity(),
         sortDescriptors: [NSSortDescriptor(keyPath: \Sound.updatedAt, ascending: false)]
     ) var sounds: FetchedResults<Sound>
-
+    
     @State var isModalPresented = false
     
+    init() {
+        // FIXME: Remove deprecated after
+        let customStatusBar =  UIView()
+        customStatusBar.frame = UIApplication.shared.statusBarFrame
+        customStatusBar.backgroundColor = UIColor.init(named: "AccentColor")
+        UIApplication.shared.keyWindow?.addSubview(customStatusBar)
+        
+        UINavigationBar.appearance().backgroundColor = UIColor.init(named: "AccentColor")
+
+        UITableView.appearance().backgroundColor = UIColor.init(named: "AccentColor")
+        UITableView.appearance().sectionHeaderHeight = 8.0
+        UITableView.appearance().sectionFooterHeight = 0.0
+        UITableView.appearance().separatorStyle = .none
+    }
+    
     func openModal() {
-        self.isModalPresented = true
+        self.isModalPresented.toggle()
     }
     
     func closeModal() {
-        self.isModalPresented = false
+        self.isModalPresented.toggle()
     }
     
     // TODO fix it
@@ -78,21 +95,33 @@ struct ListView: View {
                     subtitle: Text("listView.subtitle"),
                     action: self.openModal
                 )
+                
                 List {
                     ForEach(self.sounds, id: \.self) { sound in
-                        NavigationLink(
-                            destination: RecordView(sound: sound),
-                            label: {
+                        Section {
+                            HStack {
                                 RecordItem(
                                     title: sound.title!,
                                     id: sound.id!
                                 )
-                            })
-                    }.onDelete(perform: self.deleteItem)
+                                
+                                NavigationLink(destination: RecordView(sound: sound)) {
+                                    EmptyView()
+                                }
+                                .frame(width: 0)
+                                .opacity(0)
+                            }
+                        }
+                        .background(Color("ItemBackground"))
+                        .listRowInsets(EdgeInsets())
+                    }
+                    .onDelete(perform: self.deleteItem)
                 }
             }
+            .background(Color("AccentColor"))
             .navigationBarTitle(Text("listView.navigationBarTitle"))
         }
+        .accentColor(Color("NavigationBarColor"))
         .navigationViewStyle(StackNavigationViewStyle())
         .sheet(isPresented: $isModalPresented, content: {
             CreationForm(closeModal: self.closeModal)
@@ -102,7 +131,7 @@ struct ListView: View {
 
 struct ListView_Previews: PreviewProvider {
     static var previews: some View {
-        ListView().preferredColorScheme(.dark)
+        ListView().preferredColorScheme(.light)
             .environment(\.locale, .init(identifier: "en"))
     }
 }

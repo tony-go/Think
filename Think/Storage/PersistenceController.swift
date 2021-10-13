@@ -13,8 +13,8 @@ struct PersistenceController {
     let container: NSPersistentContainer
     
     init() {
-        container = NSPersistentContainer(name: "Store")
-        container.loadPersistentStores(completionHandler: { (description, err) in
+        self.container = NSPersistentContainer(name: "Store")
+        self.container.loadPersistentStores(completionHandler: { (description, err) in
             if let error = err {
                 fatalError(error.localizedDescription)
             }
@@ -23,10 +23,10 @@ struct PersistenceController {
     }
     
     func save() {
-        let ctx = container.viewContext
-        if ctx.hasChanges {
+        let viewContext = self.container.viewContext
+        if viewContext.hasChanges {
             do {
-                try ctx.save()
+                try viewContext.save()
             } catch {
                 fatalError(error.localizedDescription)
             }
