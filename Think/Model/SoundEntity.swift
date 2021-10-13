@@ -19,24 +19,13 @@ class SoundEntity: ObservableObject {
         let request: NSFetchRequest<Sound> = Sound.fetchRequest()
         
         do {
-            let sds = try SoundEntity.context.fetch(request)
-            self.sounds = sds;
+            self.sounds = try SoundEntity.context.fetch(request)
         } catch let error {
             print("Error during fetching sound: \(error)")
         }
     }
     
     static let context = PersistenceController.shared.container.viewContext
-    
-//    static func getRecords() -> [Sound] {
-//        let request: NSFetchRequest<Sound> = Sound.fetchRequest()
-//
-//        guard let sounds = try? SoundEntity.context.fetch(request) else {
-//            return []
-//        }
-//
-//        return sounds
-//    }
     
     static func getRecord(id: UUID) -> Optional<Sound> {
         let request: NSFetchRequest<Sound> = Sound.fetchRequest()
