@@ -59,7 +59,7 @@ struct Header: View {
                     .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                 }
             )
-            .padding(.horizontal)
+            .padding(.horizontal, 20)
         }
     }
 

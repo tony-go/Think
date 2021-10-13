@@ -48,12 +48,15 @@ struct CreationForm: View {
 }
 
 struct ListView: View {
+    
     @FetchRequest(
         entity: Sound.entity(),
         sortDescriptors: [NSSortDescriptor(keyPath: \Sound.updatedAt, ascending: false)]
     ) var sounds: FetchedResults<Sound>
     
+    @State var currentUserInteractionCellID: String?
     @State var isModalPresented = false
+    @State var navigationViewIsActive = false
     
     init() {
         // FIXME: Remove deprecated after
@@ -63,11 +66,6 @@ struct ListView: View {
         UIApplication.shared.keyWindow?.addSubview(customStatusBar)
         
         UINavigationBar.appearance().backgroundColor = UIColor.init(named: "AccentColor")
-
-        UITableView.appearance().backgroundColor = UIColor.init(named: "AccentColor")
-        UITableView.appearance().sectionHeaderHeight = 8.0
-        UITableView.appearance().sectionFooterHeight = 0.0
-        UITableView.appearance().separatorStyle = .none
     }
     
     func openModal() {
@@ -79,51 +77,59 @@ struct ListView: View {
     }
     
     // TODO fix it
-    func deleteItem(indexSet: IndexSet) {
-        let index = indexSet[indexSet.startIndex]
-        let id = self.sounds[index].id!
-        if let uuid = SoundEntity.delete(by: id) {
+    func deleteItem(_ uuid: UUID) {
+        if let uuid = SoundEntity.delete(by: uuid) {
             print("\(uuid) deleted")
         }
     }
     
     var body: some View {
+        
         NavigationView {
             VStack {
-                Header( // TODO: add trad here!
+                Header(
                     title: Text("listView.title"),
                     subtitle: Text("listView.subtitle"),
                     action: self.openModal
                 )
                 
-                List {
-                    ForEach(self.sounds, id: \.self) { sound in
-                        Section {
-                            HStack {
-                                RecordItem(
-                                    title: sound.title!,
-                                    id: sound.id!
-                                )
-                                
-                                NavigationLink(destination: RecordView(sound: sound)) {
-                                    EmptyView()
+                ScrollView {
+                    GeometryReader { geometry in
+                        LazyVStack(alignment: .center, spacing: 10) {
+                            ForEach(self.sounds, id: \.self) { sound in
+                                LazyHStack {
+                                    RecordItem(
+                                        title: sound.title!,
+                                        id: sound.id!.uuidString,
+                                        availableWidth: geometry.size.width - 40,
+                                        deletionCallback: { uuid in
+                                            self.deleteItem(uuid)
+                                        },
+                                        currentUserInteractionCellID: $currentUserInteractionCellID
+                                    )
+                                    
+                                    NavigationLink(destination: RecordView(sound: sound), isActive: self.$navigationViewIsActive) {
+                                        EmptyView()
+                                    }
                                 }
-                                .frame(width: 0)
-                                .opacity(0)
+                                .onTapGesture {
+                                    if self.currentUserInteractionCellID == sound.id?.uuidString {
+                                        self.currentUserInteractionCellID = "-1"
+                                    } else {
+                                        self.navigationViewIsActive.toggle()
+                                    }
+                                }
                             }
                         }
-                        .background(Color("ItemBackground"))
-                        .listRowInsets(EdgeInsets())
                     }
-                    .onDelete(perform: self.deleteItem)
+                    .navigationBarTitle(Text("listView.navigationBarTitle"))
                 }
             }
             .background(Color("AccentColor"))
-            .navigationBarTitle(Text("listView.navigationBarTitle"))
         }
         .accentColor(Color("NavigationBarColor"))
         .navigationViewStyle(StackNavigationViewStyle())
-        .sheet(isPresented: $isModalPresented, content: {
+        .sheet(isPresented: self.$isModalPresented, content: {
             CreationForm(closeModal: self.closeModal)
         })
     }
@@ -131,7 +137,8 @@ struct ListView: View {
 
 struct ListView_Previews: PreviewProvider {
     static var previews: some View {
-        ListView().preferredColorScheme(.light)
+        ListView()
+            .preferredColorScheme(.light)
             .environment(\.locale, .init(identifier: "en"))
     }
 }

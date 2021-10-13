@@ -85,6 +85,13 @@ class SoundEntity: NSObject, ObservableObject {
         let sound = sounds[0]
         
         SoundEntity.context.delete(sound)
+        
+        do {
+            try SoundEntity.context.save()
+        } catch {
+            return nil
+        }
+        
         return id
     }
 }

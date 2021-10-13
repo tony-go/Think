@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "SwipeCellSUI",
+        "repositoryURL": "https://github.com/DominikButz/SwipeCellSUI.git",
+        "state": {
+          "branch": "main",
+          "revision": "41f38c995c9902befc7479831b538d665903ae7a",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}

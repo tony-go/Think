@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2494B4E9271708B00035E750 /* SwipeCellSUI in Frameworks */ = {isa = PBXBuildFile; productRef = 2494B4E8271708B00035E750 /* SwipeCellSUI */; };
 		EB0079D526A15A9100AA41B1 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EB0079D226A15A9100AA41B1 /* Roboto-Regular.ttf */; };
 		EB0079D626A15A9100AA41B1 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EB0079D326A15A9100AA41B1 /* Roboto-Bold.ttf */; };
 		EB0079D726A15A9100AA41B1 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EB0079D426A15A9100AA41B1 /* Roboto-Medium.ttf */; };
@@ -79,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2494B4E9271708B00035E750 /* SwipeCellSUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,6 +246,7 @@
 			);
 			name = Think;
 			packageProductDependencies = (
+				2494B4E8271708B00035E750 /* SwipeCellSUI */,
 			);
 			productName = Think;
 			productReference = EB3314E32698C0390072661C /* Think.app */;
@@ -318,6 +321,7 @@
 			);
 			mainGroup = EB3314DA2698C0390072661C;
 			packageReferences = (
+				2494B4E7271708B00035E750 /* XCRemoteSwiftPackageReference "SwipeCellSUI" */,
 			);
 			productRefGroup = EB3314E42698C0390072661C /* Products */;
 			projectDirPath = "";
@@ -707,6 +711,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2494B4E7271708B00035E750 /* XCRemoteSwiftPackageReference "SwipeCellSUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/DominikButz/SwipeCellSUI.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2494B4E8271708B00035E750 /* SwipeCellSUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2494B4E7271708B00035E750 /* XCRemoteSwiftPackageReference "SwipeCellSUI" */;
+			productName = SwipeCellSUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		EBFBBAEF270719AF00B48CE9 /* Store.xcdatamodeld */ = {
