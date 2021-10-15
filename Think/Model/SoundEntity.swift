@@ -8,26 +8,10 @@
 import Foundation
 import CoreData
 
-class SoundEntity: ObservableObject {
-    @Published var sounds: [Sound] = []
-    
-    init() {
-        self.fetchSounds()
-    }
-    
-    func fetchSounds () {
-        let request: NSFetchRequest<Sound> = Sound.fetchRequest()
-        
-        do {
-            self.sounds = try SoundEntity.context.fetch(request)
-        } catch let error {
-            print("Error during fetching sound: \(error)")
-        }
-    }
-    
+class SoundEntity {
     static let context = PersistenceController.shared.container.viewContext
     
-    static func getRecord(id: UUID) -> Optional<Sound> {
+    static private func getOne(by id: UUID) -> Optional<Sound> {
         let request: NSFetchRequest<Sound> = Sound.fetchRequest()
         request.predicate = NSPredicate(format: "id == %@", id as CVarArg)
         
@@ -38,32 +22,32 @@ class SoundEntity: ObservableObject {
         return sound[0]
     }
     
-    func update(
+    static private func save(errorLog: String) {
+        do {
+            try SoundEntity.context.save()
+        } catch let error {
+            print("\(errorLog): \(error)")
+        }
+    }
+    
+    static func update(
         id: UUID,
         newTitle: String,
         newDescription: String
     ) {
-        if let sound = SoundEntity.getRecord(id: id) {
+        if let sound = SoundEntity.getOne(by: id) {
             sound.title = newTitle
             sound.desc = newDescription
             sound.updatedAt = Date()
             
-            do {
-                try SoundEntity.context.save()
-            } catch let error {
-                print("Error durin update sound: \(error)")
-            }
-            
-            self.fetchSounds()
+            SoundEntity.save(errorLog: "Error during sound update")
         }
         
     }
     
-    func delete(by id: UUID) -> Optional<UUID> {
-        if let sound = SoundEntity.getRecord(id: id) {
+    static func delete(by id: UUID) -> Optional<UUID> {
+        if let sound = SoundEntity.getOne(by: id) {
             SoundEntity.context.delete(sound)
-            
-            self.fetchSounds()
 
             return id
         }
@@ -71,7 +55,7 @@ class SoundEntity: ObservableObject {
         return nil
     }
     
-    func create(title: String, description: String) {
+    static func create(title: String, description: String) {
         let sound = Sound(context: SoundEntity.context)
         sound.title = title
         sound.desc = description
@@ -79,12 +63,6 @@ class SoundEntity: ObservableObject {
         sound.createdAt = Date()
         sound.updatedAt = Date()
         
-        do {
-            try SoundEntity.context.save()
-        } catch let error {
-            print("Error during sound creation: \(error)")
-        }
-        
-        self.fetchSounds()
+        SoundEntity.save(errorLog: "Error during sound creation")
     }
 }

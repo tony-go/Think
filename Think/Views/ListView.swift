@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct CreationForm: View {
     var closeModal: () -> Void
@@ -13,10 +14,8 @@ struct CreationForm: View {
     @State private var title = ""
     @State private var description = ""
     
-    @StateObject var soundEntity = SoundEntity()
-    
     private func onSave() {
-        soundEntity.create(title: self.title, description: self.description)
+        SoundEntity.create(title: self.title, description: self.description)
         
         self.closeModal()
     }
@@ -42,8 +41,8 @@ struct CreationForm: View {
 }
 
 struct ListView: View {
-    @StateObject var soundEntity = SoundEntity()
-    
+    @FetchRequest(entity: Sound.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Sound.updatedAt, ascending: false)])
+        var sounds: FetchedResults<Sound>
     @State var isModalPresented = false
     
     init() {
@@ -69,11 +68,10 @@ struct ListView: View {
         self.isModalPresented.toggle()
     }
     
-    // TODO fix it
     func deleteItem(indexSet: IndexSet) {
         let index = indexSet[indexSet.startIndex]
-        let id = self.soundEntity.sounds[index].id!
-        if let uuid = soundEntity.delete(by: id) {
+        let id = self.sounds[index].id!
+        if let uuid = SoundEntity.delete(by: id) {
             print("\(uuid) deleted")
         }
     }
@@ -88,25 +86,29 @@ struct ListView: View {
                 )
                 
                 List {
-                    ForEach(soundEntity.sounds) { sound in
-                        Section {
-                            HStack {
-                                RecordItem(
-                                    title: sound.title!,
-                                    id: sound.id!
-                                )
-                                
-                                NavigationLink(destination: RecordView(sound: sound, updateFn: soundEntity.update)) {
-                                    EmptyView()
+                    if sounds.count > 0 {
+                        ForEach(self.sounds) { sound in
+                            Section {
+                                HStack {
+                                    RecordItem(
+                                        title: sound.title!,
+                                        id: sound.id!
+                                    )
+                                    
+                                    NavigationLink(destination: RecordView(sound: Binding.constant(sound))) {
+                                        EmptyView()
+                                    }
+                                    .frame(width: 0)
+                                    .opacity(0)
                                 }
-                                .frame(width: 0)
-                                .opacity(0)
                             }
+                            .background(Color("ItemBackground"))
+                            .listRowInsets(EdgeInsets())
                         }
-                        .background(Color("ItemBackground"))
-                        .listRowInsets(EdgeInsets())
+                        .onDelete(perform: self.deleteItem)
+                    } else {
+                        Text("No sound available") // TODO: add a trad
                     }
-                    .onDelete(perform: self.deleteItem)
                 }
             }
             .background(Color("AccentColor"))

@@ -61,29 +61,26 @@ struct ActionBar: View {
 struct EditionForm: View {
     var closeModal: () -> Void
     var sound: Sound
-    var update: (UUID, String, String) -> Void
 
     @State var title: String
     @State var description: String
     
     init(
         sound: Sound,
-        closeModal: @escaping () -> Void,
-        updateFn: @escaping (UUID, String, String) -> Void
+        closeModal: @escaping () -> Void
     ) {
         self.sound = sound
         self.closeModal = closeModal
-        self.update = updateFn
         
         _title = State(initialValue: sound.title!)
         _description = State(initialValue: sound.desc!)
     }
     
     func save() {
-        self.update(
-            self.sound.id!,
-            self.title,
-            self.description
+        SoundEntity.update(
+            id: self.sound.id!,
+            newTitle: self.title,
+            newDescription: self.description
         )
         
         self.closeModal()
@@ -109,8 +106,7 @@ struct EditionForm: View {
 
 struct RecordView: View {
     // TODO: bind it to the store
-    let sound: Sound
-    let updateFn: (UUID, String, String) -> Void
+    @Binding var sound: Sound
     
     @State private var isModalPresented = false
     
@@ -146,8 +142,7 @@ struct RecordView: View {
         .fullScreenCover(isPresented: $isModalPresented, content: {
             EditionForm(
                 sound: self.sound,
-                closeModal: self.closeEditionModal,
-                updateFn: self.updateFn
+                closeModal: self.closeEditionModal
             )
         })
     }
