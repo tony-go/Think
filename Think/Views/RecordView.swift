@@ -62,13 +62,13 @@ struct EditionForm: View {
     var closeModal: () -> Void
     var sound: Sound
 
-    // Move those ones up, to have an update
     @State var title: String
     @State var description: String
     
-    @Environment(\.managedObjectContext) var managedObjectContext
-    
-    init(sound: Sound, closeModal: @escaping () -> Void) {
+    init(
+        sound: Sound,
+        closeModal: @escaping () -> Void
+    ) {
         self.sound = sound
         self.closeModal = closeModal
         
@@ -77,15 +77,11 @@ struct EditionForm: View {
     }
     
     func save() {
-        if let updatedSound = SoundEntity.saveRecord(
+        SoundEntity.update(
             id: self.sound.id!,
             newTitle: self.title,
             newDescription: self.description
-        ) {
-            print("Sound \(updatedSound.id!) updated!")
-        } else {
-            print("Imposible to save sound '\(self.sound.title!)' (id:\(self.sound.id!)")
-        }
+        )
         
         self.closeModal()
     }
@@ -110,7 +106,7 @@ struct EditionForm: View {
 
 struct RecordView: View {
     // TODO: bind it to the store
-    let sound: Sound
+    @Binding var sound: Sound
     
     @State private var isModalPresented = false
     

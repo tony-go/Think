@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct RecordItem: View {
-    var title = String()
-    var id = UUID()
+    var title: String
+    var id: UUID
 
     var body: some View {
             HStack(alignment: .center, content: {
@@ -26,6 +26,6 @@ struct RecordItem: View {
 
 struct RecordItem_Previews: PreviewProvider {
     static var previews: some View {
-        RecordItem(title: "Cours du Lundi.")
+        Text("lol")
     }
 }

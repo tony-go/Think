@@ -8,83 +8,61 @@
 import Foundation
 import CoreData
 
-class SoundEntity: NSObject, ObservableObject {
-    @Published var sounds: [Sound]
+class SoundEntity {
+    static let context = PersistenceController.shared.container.viewContext
     
-    override init() {
+    static private func getOne(by id: UUID) -> Optional<Sound> {
         let request: NSFetchRequest<Sound> = Sound.fetchRequest()
+        request.predicate = NSPredicate(format: "id == %@", id as CVarArg)
         
+        guard let sound = try? SoundEntity.context.fetch(request) else {
+            return nil
+        }
+        
+        return sound[0]
+    }
+    
+    static private func save(errorLog: String) {
         do {
-            let sds = try SoundEntity.context.fetch(request)
-            self.sounds = sds;
-        } catch {
-            self.sounds = [];
-            print("Boom")
+            try SoundEntity.context.save()
+        } catch let error {
+            print("\(errorLog): \(error)")
         }
     }
     
-    static let context = PersistenceController.shared.container.viewContext
-    
-//    static func getRecords() -> [Sound] {
-//        let request: NSFetchRequest<Sound> = Sound.fetchRequest()
-//
-//        guard let sounds = try? SoundEntity.context.fetch(request) else {
-//            return []
-//        }
-//
-//        return sounds
-//    }
-    
-//    static func getRecord(id: UUID) -> Optional<Sound> {
-//        let request: NSFetchRequest<Sound> = Sound.fetchRequest()
-//        request.predicate = NSPredicate(format: "id == %@", id as CVarArg)
-//        
-//        guard let sound = try? SoundEntity.context.fetch(request) else {
-//            return nil
-//        }
-//        
-//        return sound[0]
-//    }
-    
-    static func saveRecord(
+    static func update(
         id: UUID,
         newTitle: String,
         newDescription: String
-    ) -> Optional<Sound> {
-        // TODO: factorize with comment above (getRecord)
-        let request: NSFetchRequest<Sound> = Sound.fetchRequest()
-        request.predicate = NSPredicate(format: "id == %@", id as CVarArg)
-        
-        guard let sounds = try? SoundEntity.context.fetch(request) else {
-            return nil
+    ) {
+        if let sound = SoundEntity.getOne(by: id) {
+            sound.title = newTitle
+            sound.desc = newDescription
+            sound.updatedAt = Date()
+            
+            SoundEntity.save(errorLog: "Error during sound update")
         }
         
-        let sound = sounds[0]
-        sound.title = newTitle
-        sound.desc = newDescription
-        sound.updatedAt = Date()
-        
-        do {
-            try SoundEntity.context.save()
-        } catch {
-            return nil
-        }
-        
-        return sound
     }
     
     static func delete(by id: UUID) -> Optional<UUID> {
-        // TODO: factorize with comment above (getRecord)
-        let request: NSFetchRequest<Sound> = Sound.fetchRequest()
-        request.predicate = NSPredicate(format: "id == %@", id as CVarArg)
-        
-        guard let sounds = try? SoundEntity.context.fetch(request) else {
-            return nil
+        if let sound = SoundEntity.getOne(by: id) {
+            SoundEntity.context.delete(sound)
+
+            return id
         }
         
-        let sound = sounds[0]
+        return nil
+    }
+    
+    static func create(title: String, description: String) {
+        let sound = Sound(context: SoundEntity.context)
+        sound.title = title
+        sound.desc = description
+        sound.id = UUID()
+        sound.createdAt = Date()
+        sound.updatedAt = Date()
         
-        SoundEntity.context.delete(sound)
-        return id
+        SoundEntity.save(errorLog: "Error during sound creation")
     }
 }
