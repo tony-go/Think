@@ -8,11 +8,13 @@
 import CoreData
 
 struct PersistenceController {
-    static let shared = PersistenceController(inMemory: false)
+    static let shared = PersistenceController()
     
     let container: NSPersistentContainer
     
-    init(inMemory: Bool) {
+    init() {
+        let inMemory = CommandLine.arguments.contains("testing")
+        
         self.container = NSPersistentContainer(name: "Store")
         
         if (inMemory) {
@@ -38,11 +40,5 @@ struct PersistenceController {
                 fatalError(error.localizedDescription)
             }
         }
-    }
-}
-
-extension PersistenceController {
-    static var test: PersistenceController {
-        PersistenceController(inMemory: true)
     }
 }
