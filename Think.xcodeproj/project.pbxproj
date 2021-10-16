@@ -20,6 +20,9 @@
 		EB3314F92698C03B0072661C /* ThinkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3314F82698C03B0072661C /* ThinkTests.swift */; };
 		EB3315042698C03B0072661C /* ThinkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3315032698C03B0072661C /* ThinkUITests.swift */; };
 		EB331514269A1AA10072661C /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB331513269A1AA10072661C /* Colors.xcassets */; };
+		EB5E6EEE271AD519006F7DE2 /* SoundCreationModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5E6EED271AD519006F7DE2 /* SoundCreationModal.swift */; };
+		EB5E6EF0271AD5C0006F7DE2 /* SoundEditionModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5E6EEF271AD5C0006F7DE2 /* SoundEditionModal.swift */; };
+		EB5E6EF2271AD617006F7DE2 /* ActionBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5E6EF1271AD617006F7DE2 /* ActionBar.swift */; };
 		EB5FD61E270592B5005D6009 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB5FD61D270592B5005D6009 /* Launch Screen.storyboard */; };
 		EB9335CC26B1F92C00689249 /* RecordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9335CB26B1F92C00689249 /* RecordItem.swift */; };
 		EBA83D5126B28C3F004040F4 /* SoundEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA83D5026B28C3F004040F4 /* SoundEntity.swift */; };
@@ -67,6 +70,9 @@
 		EB3315112698C7C40072661C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		EB331512269A19090072661C /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
 		EB331513269A1AA10072661C /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		EB5E6EED271AD519006F7DE2 /* SoundCreationModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundCreationModal.swift; sourceTree = "<group>"; };
+		EB5E6EEF271AD5C0006F7DE2 /* SoundEditionModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundEditionModal.swift; sourceTree = "<group>"; };
+		EB5E6EF1271AD617006F7DE2 /* ActionBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionBar.swift; sourceTree = "<group>"; };
 		EB5FD61D270592B5005D6009 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		EB9335CB26B1F92C00689249 /* RecordItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordItem.swift; sourceTree = "<group>"; };
 		EBA83D5026B28C3F004040F4 /* SoundEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundEntity.swift; sourceTree = "<group>"; };
@@ -142,6 +148,7 @@
 			children = (
 				EB0079E326A453A700AA41B1 /* Header.swift */,
 				EB9335CB26B1F92C00689249 /* RecordItem.swift */,
+				EB5E6EF1271AD617006F7DE2 /* ActionBar.swift */,
 			);
 			path = Ui;
 			sourceTree = "<group>";
@@ -171,6 +178,7 @@
 		EB3314E52698C0390072661C /* Think */ = {
 			isa = PBXGroup;
 			children = (
+				EB5E6EEC271AD4F6006F7DE2 /* Modals */,
 				EBFBBAEE2707199500B48CE9 /* Storage */,
 				EBA83D4F26B28C10004040F4 /* Model */,
 				EB0079E226A4539100AA41B1 /* Ui */,
@@ -208,6 +216,15 @@
 				EB3315052698C03B0072661C /* Info.plist */,
 			);
 			path = ThinkUITests;
+			sourceTree = "<group>";
+		};
+		EB5E6EEC271AD4F6006F7DE2 /* Modals */ = {
+			isa = PBXGroup;
+			children = (
+				EB5E6EED271AD519006F7DE2 /* SoundCreationModal.swift */,
+				EB5E6EEF271AD5C0006F7DE2 /* SoundEditionModal.swift */,
+			);
+			path = Modals;
 			sourceTree = "<group>";
 		};
 		EBA83D4F26B28C10004040F4 /* Model */ = {
@@ -364,10 +381,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB0079E426A453A700AA41B1 /* Header.swift in Sources */,
+				EB5E6EF2271AD617006F7DE2 /* ActionBar.swift in Sources */,
 				EBFBBAF1270719AF00B48CE9 /* Store.xcdatamodeld in Sources */,
+				EB5E6EF0271AD5C0006F7DE2 /* SoundEditionModal.swift in Sources */,
 				EB3314E92698C0390072661C /* ListView.swift in Sources */,
 				EBA83D5126B28C3F004040F4 /* SoundEntity.swift in Sources */,
 				EB9335CC26B1F92C00689249 /* RecordItem.swift in Sources */,
+				EB5E6EEE271AD519006F7DE2 /* SoundCreationModal.swift in Sources */,
 				EB0079E126A1661C00AA41B1 /* SoundView.swift in Sources */,
 				EB3314E72698C0390072661C /* ThinkApp.swift in Sources */,
 				EBFBBAF327071B5500B48CE9 /* PersistenceController.swift in Sources */,

@@ -8,104 +8,7 @@
 import SwiftUI
 import CoreData
 
-// TODO: move in it's own file
-struct ActionBar: View {
-    public var editAction: () -> Void
-    
-    var body: some View {
-        ZStack {
-            Rectangle()
-               .fill(Color("ItemBackground"))
-               .frame(height: 70)
-            HStack {
-                Button(action: {}) {
-                    ZStack {
-                        Circle()
-                            .fill(Color("ButtonBackground"))
-                            .frame(width: 50, height: 50)
-                        Image(systemName: "play")
-                            .foregroundColor(Color("NavigationBarColor"))
-                            .font(.title2)
-                    }
-                }.offset(x: 70, y: -35)
-                Spacer()
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
-                    ZStack {
-                        Circle()
-                            .fill(Color.red)
-                            .frame(width: 70, height: 70)
-                        Image(systemName: "plus")
-                            .foregroundColor(Color("NavigationBarColor"))
-                            .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                    }
-                }
-                .offset(y: -35)
-                Spacer()
-                Button(action: self.editAction) {
-                    ZStack {
-                        Circle()
-                            .fill(Color("ButtonBackground"))
-                            .frame(width: 50, height: 50)
-                        Image(systemName: "pencil")
-                            .foregroundColor(Color("NavigationBarColor"))
-                            .font(.title2)
-                    }
-                }.offset(x: -70, y: -35)
-            }
-        }
-        .edgesIgnoringSafeArea(.bottom)
-    }
-}
-
-// Move into another file
-struct EditionForm: View {
-    var closeModal: () -> Void
-    var sound: Sound
-
-    @State var title: String
-    @State var description: String
-    
-    init(
-        sound: Sound,
-        closeModal: @escaping () -> Void
-    ) {
-        self.sound = sound
-        self.closeModal = closeModal
-        
-        _title = State(initialValue: sound.title!)
-        _description = State(initialValue: sound.desc!)
-    }
-    
-    func save() {
-        SoundEntity.update(
-            id: self.sound.id!,
-            newTitle: self.title,
-            newDescription: self.description
-        )
-        
-        self.closeModal()
-    }
-    
-    var body: some View {
-        VStack {
-            Form {
-                Section(header: Text("SoundView.editionModal.formLabel")) {
-                    TextField("SoundView.editionModal.titlePlaceholder", text: $title)
-                    TextField("SoundView.editionModal.descriptionPlaceholder", text: $description)
-                }
-            }
-            Spacer()
-            Button(action: self.save, label: {
-                Text("SoundView.editionModal.saveButtonLabel")
-            }).foregroundColor(.purple)
-        }
-        // Bad practice ?
-        .preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/)
-    }
-}
-
 struct SoundView: View {
-    // TODO: bind it to the store
     @Binding var sound: Sound
     
     @State private var isModalPresented = false
@@ -140,7 +43,7 @@ struct SoundView: View {
         .background(Color("AccentColor"))
         .edgesIgnoringSafeArea(.bottom)
         .fullScreenCover(isPresented: $isModalPresented, content: {
-            EditionForm(
+            SoundEditionModal(
                 sound: self.sound,
                 closeModal: self.closeEditionModal
             )

@@ -8,39 +8,8 @@
 import SwiftUI
 import CoreData
 
-struct CreationForm: View {
-    var closeModal: () -> Void
-    
-    @State private var title = ""
-    @State private var description = ""
-    
-    private func onSave() {
-        SoundEntity.create(title: self.title, description: self.description)
-        
-        self.closeModal()
-    }
-    
-    var body: some View {
-        VStack {
-            Form {
-                Section(header: Text(LocalizedStringKey("ListView.creationModal.formLabel"))) {
-                    Spacer()
-                    TextField(LocalizedStringKey("ListView.creationModal.titlePlaceholder"), text: $title)
-                    TextField(LocalizedStringKey("ListView.creationModal.descriptionPlaceholder"), text: $description)
-                }
-            }
-            Spacer()
-            Button(action: self.onSave, label: {
-                Text("ListView.creationModal.saveButtonLabel")
-                    .padding()
-                    .foregroundColor(.purple)
-            })
-        }
-        .background(Color("AccentColor"))
-    }
-}
-
 struct ListView: View {
+    // Todo: move request params into SoundEntity
     @FetchRequest(entity: Sound.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Sound.updatedAt, ascending: false)])
         var sounds: FetchedResults<Sound>
     @State var isModalPresented = false
@@ -116,7 +85,7 @@ struct ListView: View {
         .accentColor(Color("NavigationBarColor"))
         .navigationViewStyle(StackNavigationViewStyle())
         .sheet(isPresented: $isModalPresented, content: {
-            CreationForm(closeModal: self.closeModal)
+            SoundCreationModal(closeModal: self.closeModal)
         })
     }
 }
