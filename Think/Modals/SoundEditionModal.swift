@@ -39,6 +39,7 @@ struct SoundEditionModal: View {
         VStack {
             Form {
                 Section(header: Text("SoundView.editionModal.formLabel")) {
+                    Spacer()
                     TextField("SoundView.editionModal.titlePlaceholder", text: $title)
                     TextField("SoundView.editionModal.descriptionPlaceholder", text: $description)
                 }
@@ -48,8 +49,6 @@ struct SoundEditionModal: View {
                 Text("SoundView.editionModal.saveButtonLabel")
             }).foregroundColor(.purple)
         }
-        // Bad practice ?
-        .preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/)
     }
 }
 

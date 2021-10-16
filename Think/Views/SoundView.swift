@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import CoreData
 
 struct SoundView: View {
     @Binding var sound: Sound
