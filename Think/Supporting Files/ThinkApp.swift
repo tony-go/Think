@@ -9,7 +9,10 @@ import SwiftUI
 
 @main
 struct ThinkApp: App {
-    let persistenceController = PersistenceController.shared
+    let persistenceController = CommandLine.arguments.contains("ui-testing")
+        ? PersistenceController.test
+        : PersistenceController.shared
+
     @Environment(\.scenePhase) var scenePhase
     
     var body: some Scene {
@@ -30,3 +33,4 @@ struct ThinkApp: App {
         })
     }
 }
+

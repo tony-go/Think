@@ -8,13 +8,20 @@
 import CoreData
 
 struct PersistenceController {
-    static let shared = PersistenceController()
+    static let shared = PersistenceController(inMemory: false)
     
     let container: NSPersistentContainer
     
-    init() {
+    init(inMemory: Bool) {
         self.container = NSPersistentContainer(name: "Store")
-        self.container.loadPersistentStores(completionHandler: { (description, err) in
+        
+        if (inMemory) {
+            let description = NSPersistentStoreDescription()
+            description.url = URL(fileURLWithPath: "/dev/null")
+            self.container.persistentStoreDescriptions = [description]
+        }
+        
+        self.container.loadPersistentStores(completionHandler: { (_, err) in
             if let error = err {
                 fatalError(error.localizedDescription)
             }
@@ -31,5 +38,11 @@ struct PersistenceController {
                 fatalError(error.localizedDescription)
             }
         }
+    }
+}
+
+extension PersistenceController {
+    static var test: PersistenceController {
+        PersistenceController(inMemory: true)
     }
 }
