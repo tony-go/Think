@@ -19,7 +19,7 @@ struct RecordItem: View {
                 Spacer()
                 .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
             })
-            .frame(height: 60.0)
+            .frame(height: 50.0)
             .padding()
     }
 }

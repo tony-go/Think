@@ -79,7 +79,7 @@ struct ListView: View {
     var body: some View {
         NavigationView {
             VStack {
-                Header( // TODO: add trad here!
+                Header(
                     title: Text("listView.title"),
                     subtitle: Text("listView.subtitle"),
                     action: self.openModal
@@ -112,7 +112,6 @@ struct ListView: View {
                 }
             }
             .background(Color("AccentColor"))
-            .navigationBarTitle(Text("listView.navigationBarTitle"))
         }
         .accentColor(Color("NavigationBarColor"))
         .navigationViewStyle(StackNavigationViewStyle())

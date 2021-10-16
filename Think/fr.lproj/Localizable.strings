@@ -14,7 +14,6 @@
  
  */
 
-"listView.navigationBarTitle" = "Mes sons";
 "listView.title" = "Vos sons";
 "listView.subtitle" = "Choisi un son pour le modifier";
 
