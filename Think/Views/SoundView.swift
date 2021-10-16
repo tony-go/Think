@@ -1,5 +1,5 @@
 //
-//  RecordView.swift
+//  SoundView.swift
 //  Think
 //
 //  Created by Tony Gorez on 16/07/2021.
@@ -89,14 +89,14 @@ struct EditionForm: View {
     var body: some View {
         VStack {
             Form {
-                Section(header: Text("recordView.editionModal.formLabel")) {
-                    TextField("recordView.editionModal.titlePlaceholder", text: $title)
-                    TextField("recordView.editionModal.descriptionPlaceholder", text: $description)
+                Section(header: Text("SoundView.editionModal.formLabel")) {
+                    TextField("SoundView.editionModal.titlePlaceholder", text: $title)
+                    TextField("SoundView.editionModal.descriptionPlaceholder", text: $description)
                 }
             }
             Spacer()
             Button(action: self.save, label: {
-                Text("recordView.editionModal.saveButtonLabel")
+                Text("SoundView.editionModal.saveButtonLabel")
             }).foregroundColor(.purple)
         }
         // Bad practice ?
@@ -104,7 +104,7 @@ struct EditionForm: View {
     }
 }
 
-struct RecordView: View {
+struct SoundView: View {
     // TODO: bind it to the store
     @Binding var sound: Sound
     
@@ -148,7 +148,7 @@ struct RecordView: View {
     }
 }
 
-struct RecordView_Previews: PreviewProvider {
+struct SoundView_Previews: PreviewProvider {
     static var previews: some View {
         Text("Todo")
     }

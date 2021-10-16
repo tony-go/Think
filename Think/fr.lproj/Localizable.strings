@@ -14,14 +14,14 @@
  
  */
 
-"listView.title" = "Vos sons";
-"listView.subtitle" = "Choisi un son pour le modifier";
+"ListView.title" = "Vos sons";
+"ListView.subtitle" = "Choisi un son pour le modifier";
 
 // MODAL
-"recordView.creationModal.formLabel" = "Créer un nouveau son";
-"recordView.creationModal.titlePlaceholder" = "Titre";
-"recordView.creationModal.descriptionPlaceholder" = "Description";
-"recordView.creationModal.saveButtonLabel" = "Créer";
+"ListView.creationModal.formLabel" = "Créer un nouveau son";
+"ListView.creationModal.titlePlaceholder" = "Titre";
+"ListView.creationModal.descriptionPlaceholder" = "Description";
+"ListView.creationModal.saveButtonLabel" = "Créer";
 
 /**
  
@@ -30,7 +30,7 @@
  */
 
 // MODAL
-"recordView.editionModal.formLabel" = "Information du son";
-"recordView.editionModal.titlePlaceholder" = "Titre";
-"recordView.editionModal.descriptionPlaceholder" = "Description";
-"recordView.editionModal.saveButtonLabel" = "Sauvegarder";
+"SoundView.editionModal.formLabel" = "Information du son";
+"SoundView.editionModal.titlePlaceholder" = "Titre";
+"SoundView.editionModal.descriptionPlaceholder" = "Description";
+"SoundView.editionModal.saveButtonLabel" = "Sauvegarder";

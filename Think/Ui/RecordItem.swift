@@ -1,5 +1,5 @@
 //
-//  RecordItem.swift
+//  SoundItem.swift
 //  Think
 //
 //  Created by Tony Gorez on 28/07/2021.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct RecordItem: View {
+struct SoundItem: View {
     var title: String
     var id: UUID
 
@@ -24,7 +24,7 @@ struct RecordItem: View {
     }
 }
 
-struct RecordItem_Previews: PreviewProvider {
+struct SoundItem_Previews: PreviewProvider {
     static var previews: some View {
         Text("lol")
     }

@@ -23,15 +23,15 @@ struct CreationForm: View {
     var body: some View {
         VStack {
             Form {
-                Section(header: Text(LocalizedStringKey("recordView.creationModal.formLabel"))) {
+                Section(header: Text(LocalizedStringKey("ListView.creationModal.formLabel"))) {
                     Spacer()
-                    TextField(LocalizedStringKey("recordView.creationModal.titlePlaceholder"), text: $title)
-                    TextField(LocalizedStringKey("recordView.creationModal.descriptionPlaceholder"), text: $description)
+                    TextField(LocalizedStringKey("ListView.creationModal.titlePlaceholder"), text: $title)
+                    TextField(LocalizedStringKey("ListView.creationModal.descriptionPlaceholder"), text: $description)
                 }
             }
             Spacer()
             Button(action: self.onSave, label: {
-                Text("recordView.creationModal.saveButtonLabel")
+                Text("ListView.creationModal.saveButtonLabel")
                     .padding()
                     .foregroundColor(.purple)
             })
@@ -80,8 +80,8 @@ struct ListView: View {
         NavigationView {
             VStack {
                 Header(
-                    title: Text("listView.title"),
-                    subtitle: Text("listView.subtitle"),
+                    title: Text("ListView.title"),
+                    subtitle: Text("ListView.subtitle"),
                     action: self.openModal
                 )
                 
@@ -90,12 +90,12 @@ struct ListView: View {
                         ForEach(self.sounds) { sound in
                             Section {
                                 HStack {
-                                    RecordItem(
+                                    SoundItem(
                                         title: sound.title!,
                                         id: sound.id!
                                     )
                                     
-                                    NavigationLink(destination: RecordView(sound: Binding.constant(sound))) {
+                                    NavigationLink(destination: SoundView(sound: Binding.constant(sound))) {
                                         EmptyView()
                                     }
                                     .frame(width: 0)

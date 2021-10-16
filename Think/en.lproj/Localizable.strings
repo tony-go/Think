@@ -14,14 +14,14 @@
  
  */
 
-"listView.title" = "Your records";
-"listView.subtitle" = "Select one to edit it";
+"ListView.title" = "Your sounds";
+"ListView.subtitle" = "Select one to edit it";
 
 // MODAL
-"recordView.creationModal.formLabel" = "Create a new record";
-"recordView.creationModal.titlePlaceholder" = "Title";
-"recordView.creationModal.descriptionPlaceholder" = "Description";
-"recordView.creationModal.saveButtonLabel" = "Create";
+"ListView.creationModal.formLabel" = "Create a new sound";
+"ListView.creationModal.titlePlaceholder" = "Title";
+"ListView.creationModal.descriptionPlaceholder" = "Description";
+"ListView.creationModal.saveButtonLabel" = "Create";
 
 /**
  
@@ -30,7 +30,7 @@
  */
 
 // MODAL
-"recordView.editionModal.formLabel" = "Record information";
-"recordView.editionModal.titlePlaceholder" = "Title";
-"recordView.editionModal.descriptionPlaceholder" = "Description";
-"recordView.editionModal.saveButtonLabel" = "Save";
+"SoundView.editionModal.formLabel" = "Sound information";
+"SoundView.editionModal.titlePlaceholder" = "Title";
+"SoundView.editionModal.descriptionPlaceholder" = "Description";
+"SoundView.editionModal.saveButtonLabel" = "Save";

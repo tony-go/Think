@@ -11,7 +11,7 @@
 		EB0079D626A15A9100AA41B1 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EB0079D326A15A9100AA41B1 /* Roboto-Bold.ttf */; };
 		EB0079D726A15A9100AA41B1 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EB0079D426A15A9100AA41B1 /* Roboto-Medium.ttf */; };
 		EB0079DA26A15E4B00AA41B1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EB0079DC26A15E4B00AA41B1 /* Localizable.strings */; };
-		EB0079E126A1661C00AA41B1 /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0079E026A1661C00AA41B1 /* RecordView.swift */; };
+		EB0079E126A1661C00AA41B1 /* SoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0079E026A1661C00AA41B1 /* SoundView.swift */; };
 		EB0079E426A453A700AA41B1 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0079E326A453A700AA41B1 /* Header.swift */; };
 		EB3314E72698C0390072661C /* ThinkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3314E62698C0390072661C /* ThinkApp.swift */; };
 		EB3314E92698C0390072661C /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3314E82698C0390072661C /* ListView.swift */; };
@@ -50,7 +50,7 @@
 		EB0079D426A15A9100AA41B1 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		EB0079DB26A15E4B00AA41B1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EB0079DD26A15E5F00AA41B1 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
-		EB0079E026A1661C00AA41B1 /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
+		EB0079E026A1661C00AA41B1 /* SoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundView.swift; sourceTree = "<group>"; };
 		EB0079E326A453A700AA41B1 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		EB3314E32698C0390072661C /* Think.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Think.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB3314E62698C0390072661C /* ThinkApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThinkApp.swift; sourceTree = "<group>"; };
@@ -122,7 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				EB3314E82698C0390072661C /* ListView.swift */,
-				EB0079E026A1661C00AA41B1 /* RecordView.swift */,
+				EB0079E026A1661C00AA41B1 /* SoundView.swift */,
 				EB5FD61D270592B5005D6009 /* Launch Screen.storyboard */,
 			);
 			path = Views;
@@ -368,7 +368,7 @@
 				EB3314E92698C0390072661C /* ListView.swift in Sources */,
 				EBA83D5126B28C3F004040F4 /* SoundEntity.swift in Sources */,
 				EB9335CC26B1F92C00689249 /* RecordItem.swift in Sources */,
-				EB0079E126A1661C00AA41B1 /* RecordView.swift in Sources */,
+				EB0079E126A1661C00AA41B1 /* SoundView.swift in Sources */,
 				EB3314E72698C0390072661C /* ThinkApp.swift in Sources */,
 				EBFBBAF327071B5500B48CE9 /* PersistenceController.swift in Sources */,
 			);
