@@ -34,33 +34,28 @@ class ThinkUITests: XCTestCase {
     }
     
     func test_GivenLaunchedApp_WhenTapOnPlusIcon_ThenCreationModalIsShown() throws {
-        // When
+        // Given
         let app = self.app!
         
-        // Then
+        // When
         let addButton = app.buttons["Add"]
         addButton.tap();
         
-        // When
+        // Then
         let modalTitle = app.staticTexts["Create a new sound"]
         XCTAssert(modalTitle.exists)
     }
     
     func test_GivenLaunchedApp_WhenCreateNewSound_ThenItAppearsOnList() throws {
-        // When
+        // Given
         let app = self.app!
         
         // When
         let addButton = app.buttons["Add"]
         addButton.tap();
         
-        let titleField = app.textFields["Title"]
-        titleField.tap()
-        titleField.typeText("New sound")
-        
-        let descriptionField = app.textFields["Description"]
-        descriptionField.tap()
-        descriptionField.typeText("This is a new sound")
+        let name = "New sound"
+        self.fillCreationForm(with: name, and: "Description")
         
         let saveButton = app.buttons["Create"]
         saveButton.tap()
@@ -68,11 +63,29 @@ class ThinkUITests: XCTestCase {
         // Then
         let listTitle = app.staticTexts["Your sounds"]
         XCTAssert(listTitle.exists)
-        let textLabel = app.staticTexts["New sound"]
+        let textLabel = app.staticTexts[name]
         XCTAssert(textLabel.waitForExistence(timeout: 3))
+    }
+    
+    func test_GivenSoundCreationModal_WhenFilledWithEmptyValues_ThenButtonDisable() throws {
+        // Given
+        let app = self.app!
+        // Open the modal
+        let addButton = app.buttons["Add"]
+        addButton.tap();
+        
+        // When
+        self.fillCreationForm(with: "", and: "")
+        
+        // Then
+        let saveButton = app.buttons["Create"]
+        XCTAssertFalse(saveButton.isEnabled)
     }
 }
 
+/**
+ Helpers extensions
+ */
 extension ThinkUITests {
     override func setUp() {
         self.app = self.launchApp()
@@ -86,5 +99,20 @@ extension ThinkUITests {
         app.launch()
         
         return app
+    }
+    
+    private func fillCreationForm(
+        with title: String,
+        and description: String
+    ) {
+        let app = self.app!
+
+        let titleField = app.textFields["Title"]
+        titleField.tap()
+        titleField.typeText(title)
+        
+        let descriptionField = app.textFields["Description"]
+        descriptionField.tap()
+        descriptionField.typeText(description)
     }
 }

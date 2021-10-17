@@ -13,6 +13,14 @@ struct SoundCreationModal: View {
     @State private var title = ""
     @State private var description = ""
     
+    private var isDisabled: Bool {
+        if self.title.count == 0 || self.description.count == 0 {
+            return true
+        } else {
+            return false
+        }
+    }
+    
     private func onSave() {
         SoundEntity.create(title: self.title, description: self.description)
         
@@ -29,11 +37,15 @@ struct SoundCreationModal: View {
                 }
             }
             Spacer()
-            Button(action: self.onSave, label: {
-                Text("ListView.creationModal.saveButtonLabel")
-                    .padding()
-                    .foregroundColor(.purple)
-            })
+            Button(
+                action: self.onSave,
+                label: {
+                    Text("ListView.creationModal.saveButtonLabel")
+                        .padding()
+                        .foregroundColor(.purple)
+                        .disabled(self.isDisabled)
+                }
+            ).disabled(self.isDisabled)
         }
         .background(Color("AccentColor"))
     }
