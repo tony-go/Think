@@ -15,15 +15,14 @@ struct ListView: View {
     @State var isModalPresented = false
     
     init() {
-        // FIXME: Remove deprecated after
-        let customStatusBar =  UIView()
-        customStatusBar.frame = UIApplication.shared.statusBarFrame
-        customStatusBar.backgroundColor = UIColor.init(named: "AccentColor")
-        UIApplication.shared.keyWindow?.addSubview(customStatusBar)
-        
-        UINavigationBar.appearance().backgroundColor = UIColor.init(named: "AccentColor")
-
-        UITableView.appearance().backgroundColor = UIColor.init(named: "AccentColor")
+        self.initAppearance()
+    }
+    
+    fileprivate func initAppearance() {
+        UINavigationBar.appearance().backgroundColor =
+            UIColor.init(named: "AccentColor")
+        UITableView.appearance().backgroundColor =
+            UIColor.init(named: "AccentColor")
         UITableView.appearance().sectionHeaderHeight = 8.0
         UITableView.appearance().sectionFooterHeight = 0.0
         UITableView.appearance().separatorStyle = .none
@@ -76,7 +75,7 @@ struct ListView: View {
                         }
                         .onDelete(perform: self.deleteItem)
                     } else {
-                        Text("No sound available") // TODO: add a trad
+                        Text("ListView.fallback")
                     }
                 }
             }

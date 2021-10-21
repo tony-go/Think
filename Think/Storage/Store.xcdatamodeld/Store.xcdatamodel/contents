@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20F71" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19206" systemVersion="20G165" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Record" representedClassName="Record" syncable="YES" codeGenerationType="class">
         <attribute name="emoji" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
@@ -13,10 +13,10 @@
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="title" optional="YES" attributeType="String"/>
         <attribute name="updatedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <relationship name="toRecords" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Record" inverseName="fromSound" inverseEntity="Record"/>
+        <relationship name="toRecords" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Record" inverseName="fromSound" inverseEntity="Record"/>
     </entity>
     <elements>
-        <element name="Record" positionX="-63" positionY="-18" width="128" height="104"/>
-        <element name="Sound" positionX="-54" positionY="18" width="128" height="14"/>
+        <element name="Record" positionX="-63" positionY="-18" width="128" height="118"/>
+        <element name="Sound" positionX="-54" positionY="18" width="128" height="133"/>
     </elements>
 </model>

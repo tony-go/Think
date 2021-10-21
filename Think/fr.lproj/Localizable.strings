@@ -16,6 +16,7 @@
 
 "ListView.title" = "Vos sons";
 "ListView.subtitle" = "Choisi un son pour le modifier";
+"ListView.fallback" = "Pas de son disponible";
 
 // MODAL
 "ListView.creationModal.formLabel" = "Créer un nouveau son";

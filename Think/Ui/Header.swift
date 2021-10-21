@@ -54,7 +54,9 @@ struct Header: View {
                     }
                     Button(action: self.action) {
                         Image(systemName: self.actionIconName)
-                    }.padding()
+                    }
+                    .accessibilityIdentifier("Add")
+                    .padding()
                     .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                 }
             )
