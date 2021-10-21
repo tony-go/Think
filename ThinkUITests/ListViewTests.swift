@@ -1,6 +1,6 @@
 //
-//  ThinkUITests.swift
-//  ThinkUITests
+//  ListViewTests.swift
+//  ListViewTests
 //
 //  Created by Tony Gorez on 09/07/2021.
 //
@@ -8,7 +8,7 @@
 import XCTest
 @testable import Think
 
-class ThinkUITests: XCTestCase {
+class ListViewTests: XCTestCase {
     var app: XCUIApplication!
     
     func test_GivenApp_WhenLaunched_ThenListInfoShouldAppear() throws {
@@ -94,27 +94,24 @@ class ThinkUITests: XCTestCase {
         app.buttons["Delete"].tap()
         
         // Then
-        let modalTitle = app.staticTexts[soundName]
-        XCTAssertFalse(modalTitle.exists)
+        let soundItem = app.staticTexts[soundName]
+        XCTAssertFalse(soundItem.exists)
     }
 }
 
 /**
  Helpers extensions
  */
-extension ThinkUITests {
+extension ListViewTests {
     override func setUp() {
-        self.app = self.launchApp()
+        self.launchApp()
     }
     
-    private func launchApp() -> XCUIApplication {
-        let app = XCUIApplication()
-        app.launchArguments.append("testing")
+    private func launchApp() {
+        self.app = XCUIApplication()
 
-        // When
-        app.launch()
-        
-        return app
+        self.app.launchArguments.append("testing")
+        self.app.launch()
     }
     
     private func fillCreationForm(

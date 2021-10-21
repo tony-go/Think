@@ -48,7 +48,9 @@ struct ActionBar: View {
                             .foregroundColor(Color("NavigationBarColor"))
                             .font(.title2)
                     }
-                }.offset(x: -70, y: -35)
+                }
+                .offset(x: -70, y: -35)
+                .accessibilityIdentifier("Edit")
             }
         }
         .edgesIgnoringSafeArea(.bottom)

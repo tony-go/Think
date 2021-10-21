@@ -18,13 +18,14 @@
 		EB3314EB2698C03B0072661C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB3314EA2698C03B0072661C /* Assets.xcassets */; };
 		EB3314EE2698C03B0072661C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB3314ED2698C03B0072661C /* Preview Assets.xcassets */; };
 		EB3314F92698C03B0072661C /* ThinkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3314F82698C03B0072661C /* ThinkTests.swift */; };
-		EB3315042698C03B0072661C /* ThinkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3315032698C03B0072661C /* ThinkUITests.swift */; };
+		EB3315042698C03B0072661C /* ListViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3315032698C03B0072661C /* ListViewTests.swift */; };
 		EB331514269A1AA10072661C /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB331513269A1AA10072661C /* Colors.xcassets */; };
 		EB5E6EEE271AD519006F7DE2 /* SoundCreationModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5E6EED271AD519006F7DE2 /* SoundCreationModal.swift */; };
 		EB5E6EF0271AD5C0006F7DE2 /* SoundEditionModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5E6EEF271AD5C0006F7DE2 /* SoundEditionModal.swift */; };
 		EB5E6EF2271AD617006F7DE2 /* ActionBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5E6EF1271AD617006F7DE2 /* ActionBar.swift */; };
 		EB5FD61E270592B5005D6009 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB5FD61D270592B5005D6009 /* Launch Screen.storyboard */; };
 		EB9335CC26B1F92C00689249 /* RecordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9335CB26B1F92C00689249 /* RecordItem.swift */; };
+		EB97074727212C9B009A91EB /* SoundViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB97074627212C9B009A91EB /* SoundViewTests.swift */; };
 		EBA83D5126B28C3F004040F4 /* SoundEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA83D5026B28C3F004040F4 /* SoundEntity.swift */; };
 		EBFBBAF1270719AF00B48CE9 /* Store.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EBFBBAEF270719AF00B48CE9 /* Store.xcdatamodeld */; };
 		EBFBBAF327071B5500B48CE9 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFBBAF227071B5500B48CE9 /* PersistenceController.swift */; };
@@ -65,7 +66,7 @@
 		EB3314F82698C03B0072661C /* ThinkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThinkTests.swift; sourceTree = "<group>"; };
 		EB3314FA2698C03B0072661C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB3314FF2698C03B0072661C /* ThinkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThinkUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		EB3315032698C03B0072661C /* ThinkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThinkUITests.swift; sourceTree = "<group>"; };
+		EB3315032698C03B0072661C /* ListViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewTests.swift; sourceTree = "<group>"; };
 		EB3315052698C03B0072661C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB3315112698C7C40072661C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		EB331512269A19090072661C /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
@@ -75,6 +76,7 @@
 		EB5E6EF1271AD617006F7DE2 /* ActionBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionBar.swift; sourceTree = "<group>"; };
 		EB5FD61D270592B5005D6009 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		EB9335CB26B1F92C00689249 /* RecordItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordItem.swift; sourceTree = "<group>"; };
+		EB97074627212C9B009A91EB /* SoundViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundViewTests.swift; sourceTree = "<group>"; };
 		EBA83D5026B28C3F004040F4 /* SoundEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundEntity.swift; sourceTree = "<group>"; };
 		EBFBBAF0270719AF00B48CE9 /* Store.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Store.xcdatamodel; sourceTree = "<group>"; };
 		EBFBBAF227071B5500B48CE9 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
@@ -212,8 +214,9 @@
 		EB3315022698C03B0072661C /* ThinkUITests */ = {
 			isa = PBXGroup;
 			children = (
-				EB3315032698C03B0072661C /* ThinkUITests.swift */,
+				EB3315032698C03B0072661C /* ListViewTests.swift */,
 				EB3315052698C03B0072661C /* Info.plist */,
+				EB97074627212C9B009A91EB /* SoundViewTests.swift */,
 			);
 			path = ThinkUITests;
 			sourceTree = "<group>";
@@ -406,7 +409,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB3315042698C03B0072661C /* ThinkUITests.swift in Sources */,
+				EB97074727212C9B009A91EB /* SoundViewTests.swift in Sources */,
+				EB3315042698C03B0072661C /* ListViewTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
