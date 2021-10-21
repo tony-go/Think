@@ -81,6 +81,22 @@ class ThinkUITests: XCTestCase {
         let saveButton = app.buttons["Create"]
         XCTAssertFalse(saveButton.isEnabled)
     }
+    
+    func test_GivenCreatedSound_WhenDeleteSound_ThenSoundNotInList() throws {
+        // Given
+        let app = self.app!
+        let soundName = "Test"
+        self.createSound(with: soundName, and: "Description")
+        
+        // When
+        let sound = app.staticTexts[soundName]
+        sound.swipeLeft()
+        app.buttons["Delete"].tap()
+        
+        // Then
+        let modalTitle = app.staticTexts[soundName]
+        XCTAssertFalse(modalTitle.exists)
+    }
 }
 
 /**
@@ -114,5 +130,19 @@ extension ThinkUITests {
         let descriptionField = app.textFields["Description"]
         descriptionField.tap()
         descriptionField.typeText(description)
+    }
+    
+    private func createSound(
+        with title: String,
+        and description: String
+    ) {
+        let app = self.app!
+        let addButton = app.buttons["Add"]
+        addButton.tap();
+        
+        self.fillCreationForm(with: title, and: description)
+        
+        let saveButton = app.buttons["Create"]
+        saveButton.tap()
     }
 }

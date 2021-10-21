@@ -78,6 +78,7 @@ struct ListView: View {
                         Text("ListView.fallback")
                     }
                 }
+                .accessibilityIdentifier("SoundList")
             }
             .background(Color("AccentColor"))
         }
