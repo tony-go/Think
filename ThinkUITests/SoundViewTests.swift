@@ -28,6 +28,26 @@ class SoundViewTests: XCTestCase {
         let modalTitle = app.staticTexts["Sound information"]
         XCTAssert(modalTitle.exists)
     }
+    
+    func test_GivenAnUpdateModal_WhenTitleFieldFillAndSaveButton_ThenItShouldUpdateSound() throws {
+        // Given
+        let app = self.app!
+        let editButton = app.buttons["Edit"]
+        editButton.tap()
+        
+        // When
+        let newHalfTitle = " Updated"
+        let titleField = app.textFields["Title"]
+        titleField.tap()
+        titleField.typeText(newHalfTitle)
+        
+        let updateButton = app.buttons["Save"]
+        updateButton.tap()
+        
+        // Then
+        let updatedTitle = app.staticTexts[Fixtures.fakeName + newHalfTitle]
+        XCTAssertTrue(updatedTitle.exists)
+    }
 }
 
 extension SoundViewTests {
