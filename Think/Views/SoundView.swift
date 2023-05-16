@@ -20,6 +20,8 @@ struct SoundView: View {
         self.isModalPresented = false
     }
     
+    private func record() {}
+
     var body: some View {
         VStack {
             VStack {
@@ -74,7 +76,7 @@ struct SoundView: View {
                 }
             }.padding(.horizontal)
             Spacer()
-            ActionBar(editAction: self.openEditionModal).frame(alignment: .bottom)
+            ActionBar(editAction: self.openEditionModal, record: self.record).frame(alignment: .bottom)
         }
         .background(Color("AccentColor"))
         .edgesIgnoringSafeArea(.bottom)

@@ -10,6 +10,8 @@ import SwiftUI
 struct ActionBar: View {
     public var editAction: () -> Void
     
+    public var record: () -> Void
+   
     var body: some View {
         ZStack {
             Rectangle()
