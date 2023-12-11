@@ -31,29 +31,29 @@ struct SoundCreationModal: View {
         VStack {
             Form {
                 Section(header: Text(LocalizedStringKey("ListView.creationModal.formLabel"))) {
-                    Spacer()
                     TextField(LocalizedStringKey("ListView.creationModal.titlePlaceholder"), text: $title)
                     TextField(LocalizedStringKey("ListView.creationModal.descriptionPlaceholder"), text: $description)
                 }
+                Button(
+                    action: self.onSave,
+                    label: {
+                        Text("ListView.creationModal.saveButtonLabel")
+                            .padding()
+                            .foregroundColor(.purple)
+                            .disabled(self.isDisabled)
+                    }
+                )
+                .disabled(self.isDisabled)
             }
-            Spacer()
-            Button(
-                action: self.onSave,
-                label: {
-                    Text("ListView.creationModal.saveButtonLabel")
-                        .padding()
-                        .foregroundColor(.purple)
-                        .disabled(self.isDisabled)
-                }
-            ).disabled(self.isDisabled)
+           
         }
-        .background(Color("AccentColor"))
     }
 }
 
 
 struct SoundCreationModal_Previews: PreviewProvider {
+    static func fakeCloseModal() {}
     static var previews: some View {
-        Text("todo")
+        SoundCreationModal(closeModal: fakeCloseModal)
     }
 }
