@@ -38,22 +38,30 @@ struct SoundEditionModal: View {
     var body: some View {
         VStack {
             Form {
-                Section(header: Text("SoundView.editionModal.formLabel")) {
-                    Spacer()
+                Section(header: Text("SoundView.editionModal.formLabel").padding()) {
                     TextField("SoundView.editionModal.titlePlaceholder", text: $title)
                     TextField("SoundView.editionModal.descriptionPlaceholder", text: $description)
                 }
-            }
-            Spacer()
             Button(action: self.save, label: {
                 Text("SoundView.editionModal.saveButtonLabel")
             }).foregroundColor(.purple)
+            }
         }
     }
 }
 
 struct SoundEditionModal_Previews: PreviewProvider {
+    static func fakeCloseModal() {}
     static var previews: some View {
-        Text("todo")
+        let ctx = PersistenceController.shared.container.viewContext
+        
+        let sound = Sound(context: ctx)
+        sound.id = UUID()
+        sound.title = "Fake sound"
+        sound.desc = "This is a sound"
+        sound.createdAt = Date()
+        sound.updatedAt = Date()
+        
+        return SoundEditionModal(sound: sound, closeModal: fakeCloseModal)
     }
 }

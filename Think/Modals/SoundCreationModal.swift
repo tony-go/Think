@@ -30,7 +30,7 @@ struct SoundCreationModal: View {
     var body: some View {
         VStack {
             Form {
-                Section(header: Text(LocalizedStringKey("ListView.creationModal.formLabel"))) {
+                Section(header: Text(LocalizedStringKey("ListView.creationModal.formLabel")).padding()) {
                     TextField(LocalizedStringKey("ListView.creationModal.titlePlaceholder"), text: $title)
                     TextField(LocalizedStringKey("ListView.creationModal.descriptionPlaceholder"), text: $description)
                 }
@@ -38,7 +38,6 @@ struct SoundCreationModal: View {
                     action: self.onSave,
                     label: {
                         Text("ListView.creationModal.saveButtonLabel")
-                            .padding()
                             .foregroundColor(.purple)
                             .disabled(self.isDisabled)
                     }
