@@ -29,7 +29,7 @@ struct ActionBar: View {
                     }
                 }.offset(x: 70, y: -35)
                 Spacer()
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+                Button(action: self.record) {
                     ZStack {
                         Circle()
                             .fill(Color.red)

@@ -9,8 +9,19 @@ import SwiftUI
 
 struct SoundView: View {
     @Binding var sound: Sound
-    
     @State private var isModalPresented = false
+    @FetchRequest var records: FetchedResults<Record>
+    
+    init(sound: Binding<Sound>) {
+        print("init")
+        self._sound = sound
+        
+        self._records = FetchRequest<Record>(
+            entity: Record.entity(),
+            sortDescriptors: [],
+            predicate: NSPredicate(format: "fromSound == %@", sound.wrappedValue)
+        )
+    }
     
     private func openEditionModal() {
         self.isModalPresented = true
@@ -20,7 +31,11 @@ struct SoundView: View {
         self.isModalPresented = false
     }
     
-    private func record() {}
+    private func record() {
+        print("Add new record")
+        // TODO: handle position properly
+        RecordEntity.create(at: 1, in: self.sound)
+    }
 
     var body: some View {
         VStack {
@@ -34,46 +49,53 @@ struct SoundView: View {
             }.padding()
             Spacer()
             ScrollView(.vertical) {
-                ForEach((1...45).reversed(), id: \.self) {num in
-                    // FIXME: add lazy stack
-                    HStack {
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 12, style: .continuous)
-                                .fill(Color("ItemBackground"))
-                         
-                            HStack {
-                                Circle()
-                                    .fill(Color.blue)
-                                    .frame(width: 20, height: 20)
-                                Text("Item \(num)")
-                                Spacer()
-                            }.padding(.horizontal)
-                        }
-                        Spacer().frame(width: 50)
-                        HStack {
-                            Button(action: {}) {
-                                ZStack {
-                                    Circle()
-                                        .fill(Color("ItemBackground"))
-                                        .frame(width: 42, height: 42)
-                                    Image(systemName: "play")
-                                        .foregroundColor(Color("NavigationBarColor"))
-                                        .font(.title2)
-                                }
-                            }
-                            Button(action: {}) {
-                                ZStack {
-                                    Circle()
-                                        .fill(Color("ItemBackground"))
-                                        .frame(width: 42, height: 42)
-                                    Image(systemName: "record.circle")
-                                        .foregroundColor(.red)
-                                        .font(.title2)
-                                }
-                            }
-                        }
-                    }.padding(.horizontal)
+                LazyVStack { // Use LazyVStack to load views on demand
+                    ForEach(records, id: \.self) { record in
+                        // TODO: create a RecordItem and use it here
+                        // We can use comment below
+                        Text("\(record.label!) \(record.position)")
+                    }
                 }
+//                ForEach((1...45).reversed(), id: \.self) {num in
+//                    // FIXME: add lazy stack
+//                    HStack {
+//                        ZStack {
+//                            RoundedRectangle(cornerRadius: 12, style: .continuous)
+//                                .fill(Color("ItemBackground"))
+//
+//                            HStack {
+//                                Circle()
+//                                    .fill(Color.blue)
+//                                    .frame(width: 20, height: 20)
+//                                Text("Item \(num)")
+//                                Spacer()
+//                            }.padding(.horizontal)
+//                        }
+//                        Spacer().frame(width: 50)
+//                        HStack {
+//                            Button(action: {}) {
+//                                ZStack {
+//                                    Circle()
+//                                        .fill(Color("ItemBackground"))
+//                                        .frame(width: 42, height: 42)
+//                                    Image(systemName: "play")
+//                                        .foregroundColor(Color("NavigationBarColor"))
+//                                        .font(.title2)
+//                                }
+//                            }
+//                            Button(action: {}) {
+//                                ZStack {
+//                                    Circle()
+//                                        .fill(Color("ItemBackground"))
+//                                        .frame(width: 42, height: 42)
+//                                    Image(systemName: "record.circle")
+//                                        .foregroundColor(.red)
+//                                        .font(.title2)
+//                                }
+//                            }
+//                        }
+//                    }.padding(.horizontal)
+//                }
             }.padding(.horizontal)
             Spacer()
             ActionBar(editAction: self.openEditionModal, record: self.record).frame(alignment: .bottom)
@@ -91,6 +113,16 @@ struct SoundView: View {
 
 struct SoundView_Previews: PreviewProvider {
     static var previews: some View {
-        Text("Todo")
+        let ctx = PersistenceController.shared.container.viewContext
+        
+        let sound = Sound(context: ctx)
+        sound.id = UUID()
+        sound.title = "Fake sound"
+        sound.desc = "This is a sound"
+        sound.createdAt = Date()
+        sound.updatedAt = Date()
+        
+        
+        return SoundView(sound: Binding.constant(sound))
     }
 }
