@@ -15,7 +15,7 @@ struct ActionBar: View {
     var body: some View {
         ZStack {
             Rectangle()
-               .fill(Color("ItemBackground"))
+               .fill(Color("AccentColor"))
                .frame(height: 70)
             HStack {
                 Button(action: {}) {
