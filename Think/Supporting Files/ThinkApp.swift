@@ -7,10 +7,13 @@
 
 import SwiftUI
 
+// class AppDelegate: NSObject, UIApplicationDelegate {}
+
 @available(iOS 16.0, *)
 @main
 struct ThinkApp: App {
     let persistenceController = PersistenceController.shared
+    // @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     
     @Environment(\.scenePhase) var scenePhase
     
