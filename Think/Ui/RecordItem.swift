@@ -15,7 +15,6 @@ struct SoundItem: View {
             HStack(alignment: .center, content: {
                 Text(self.title)
                     .font(.title2)
-                    .foregroundColor(.white)
                 Spacer()
                 .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
             })
