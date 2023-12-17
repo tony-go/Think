@@ -47,7 +47,9 @@ struct RecordItem: View {
                                                 }
                                            }
                                         }
-                                    }.padding(.horizontal)
+                                    }
+                                    .padding(.horizontal)
+                                    .frame(height: 42)
     }
 }
 
