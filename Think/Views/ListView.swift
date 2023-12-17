@@ -46,8 +46,8 @@ struct ListView: View {
                             Section {
                                 HStack {
                                     SoundItem(
-                                        title: sound.title!,
-                                        id: sound.id!
+                                        title: sound.title!
+                                        // id: sound.id!
                                     )
                                     NavigationLink(destination: SoundView(sound: Binding.constant(sound))) {
                                         EmptyView()
