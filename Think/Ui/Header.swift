@@ -12,7 +12,6 @@ private struct Title: View {
     
     var body: some View {
         self.Label
-            .foregroundColor(.white)
             .font(.largeTitle).bold()
             .frame(maxWidth: .infinity, alignment: .topLeading)
             .padding(.all)
@@ -24,7 +23,6 @@ private struct SubTitle: View {
     
     var body: some View {
         self.Label
-            .foregroundColor(.white)
             .font(.headline)
             .frame(maxWidth: .infinity, alignment: .topLeading)
             .padding(.all)
@@ -55,6 +53,7 @@ struct Header: View {
                     Button(action: self.action) {
                         Image(systemName: self.actionIconName)
                     }
+                    .foregroundColor(Color("NavigationBarColor"))
                     .accessibilityIdentifier("Add")
                     .padding()
                     .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)

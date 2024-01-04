@@ -39,7 +39,8 @@ class SoundEntity {
             sound.title = newTitle
             sound.desc = newDescription
             sound.updatedAt = Date()
-            
+           
+            // TODO: use i18n
             SoundEntity.save(errorLog: "Error during sound update")
         }
         

@@ -27,6 +27,8 @@
 		EB9335CC26B1F92C00689249 /* RecordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9335CB26B1F92C00689249 /* RecordItem.swift */; };
 		EB97074727212C9B009A91EB /* SoundViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB97074627212C9B009A91EB /* SoundViewTests.swift */; };
 		EBA83D5126B28C3F004040F4 /* SoundEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA83D5026B28C3F004040F4 /* SoundEntity.swift */; };
+		EBEE71002B2B0BDD00D49B8C /* RecordEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEE70FF2B2B0BDD00D49B8C /* RecordEntity.swift */; };
+		EBEE71022B2F02EF00D49B8C /* SoundItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEE71012B2F02EF00D49B8C /* SoundItem.swift */; };
 		EBFBBAF1270719AF00B48CE9 /* Store.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EBFBBAEF270719AF00B48CE9 /* Store.xcdatamodeld */; };
 		EBFBBAF327071B5500B48CE9 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFBBAF227071B5500B48CE9 /* PersistenceController.swift */; };
 /* End PBXBuildFile section */
@@ -78,6 +80,8 @@
 		EB9335CB26B1F92C00689249 /* RecordItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordItem.swift; sourceTree = "<group>"; };
 		EB97074627212C9B009A91EB /* SoundViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundViewTests.swift; sourceTree = "<group>"; };
 		EBA83D5026B28C3F004040F4 /* SoundEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundEntity.swift; sourceTree = "<group>"; };
+		EBEE70FF2B2B0BDD00D49B8C /* RecordEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordEntity.swift; sourceTree = "<group>"; };
+		EBEE71012B2F02EF00D49B8C /* SoundItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundItem.swift; sourceTree = "<group>"; };
 		EBFBBAF0270719AF00B48CE9 /* Store.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Store.xcdatamodel; sourceTree = "<group>"; };
 		EBFBBAF227071B5500B48CE9 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -151,6 +155,7 @@
 				EB0079E326A453A700AA41B1 /* Header.swift */,
 				EB9335CB26B1F92C00689249 /* RecordItem.swift */,
 				EB5E6EF1271AD617006F7DE2 /* ActionBar.swift */,
+				EBEE71012B2F02EF00D49B8C /* SoundItem.swift */,
 			);
 			path = Ui;
 			sourceTree = "<group>";
@@ -234,6 +239,7 @@
 			isa = PBXGroup;
 			children = (
 				EBA83D5026B28C3F004040F4 /* SoundEntity.swift */,
+				EBEE70FF2B2B0BDD00D49B8C /* RecordEntity.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -388,7 +394,9 @@
 				EBFBBAF1270719AF00B48CE9 /* Store.xcdatamodeld in Sources */,
 				EB5E6EF0271AD5C0006F7DE2 /* SoundEditionModal.swift in Sources */,
 				EB3314E92698C0390072661C /* ListView.swift in Sources */,
+				EBEE71002B2B0BDD00D49B8C /* RecordEntity.swift in Sources */,
 				EBA83D5126B28C3F004040F4 /* SoundEntity.swift in Sources */,
+				EBEE71022B2F02EF00D49B8C /* SoundItem.swift in Sources */,
 				EB9335CC26B1F92C00689249 /* RecordItem.swift in Sources */,
 				EB5E6EEE271AD519006F7DE2 /* SoundCreationModal.swift in Sources */,
 				EB0079E126A1661C00AA41B1 /* SoundView.swift in Sources */,
