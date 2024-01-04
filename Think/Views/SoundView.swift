@@ -49,12 +49,12 @@ struct SoundView: View {
             }.padding()
             Spacer()
             ScrollView(.vertical) {
-                LazyVStack { // Use LazyVStack to load views on demand
-                                ForEach(records, id: \.self) { record in
-                                    RecordItem(label: record.label!, position: record.position)
-                               }
+                LazyVStack {
+                   ForEach(records, id: \.self) { record in
+                        RecordItem(label: record.label!, position: record.position)
+                   }
                 }
-                }.padding(.horizontal)
+            }.padding(.horizontal)
             Spacer()
             ActionBar(editAction: self.openEditionModal, record: self.record).frame(alignment: .bottom)
         }
