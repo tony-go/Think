@@ -43,6 +43,7 @@ struct ListView: View {
                 List {
                     if sounds.count > 0 {
                         ForEach(self.sounds) { sound in
+                            // TODO: move section to SoundItem
                             Section {
                                 HStack {
                                     SoundItem(
