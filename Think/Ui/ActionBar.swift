@@ -9,58 +9,54 @@ import SwiftUI
 
 struct ActionBar: View {
     public var editAction: () -> Void
-    
     public var record: () -> Void
    
     var body: some View {
-        ZStack {
-            Rectangle()
-               .fill(Color("AccentColor"))
-               .frame(height: 70)
-            HStack {
-                Button(action: {}) {
-                    ZStack {
-                        Circle()
-                            .fill(Color("ButtonBackground"))
-                            .frame(width: 50, height: 50)
-                        Image(systemName: "play")
-                            .foregroundColor(Color("NavigationBarColor"))
-                            .font(.title2)
-                    }
-                }.offset(x: 70, y: -35)
-                Spacer()
-                Button(action: self.record) {
-                    ZStack {
-                        Circle()
-                            .fill(Color.red)
-                            .frame(width: 70, height: 70)
-                        Image(systemName: "plus")
-                            .foregroundColor(Color("NavigationBarColor"))
-                            .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                    }
+        HStack {
+            Button(action: {}) {
+                ZStack {
+                    Circle()
+                        .fill(Color("ButtonBackground"))
+                        .frame(width: 50, height: 50)
+                    Image(systemName: "play")
+                        .foregroundColor(Color("NavigationBarColor"))
+                        .font(.title2)
                 }
-                .offset(y: -35)
-                Spacer()
-                Button(action: self.editAction) {
-                    ZStack {
-                        Circle()
-                            .fill(Color("ButtonBackground"))
-                            .frame(width: 50, height: 50)
-                        Image(systemName: "pencil")
-                            .foregroundColor(Color("NavigationBarColor"))
-                            .font(.title2)
-                    }
+            }.offset(x: 70, y: -35)
+            Spacer()
+            Button(action: self.record) {
+                ZStack {
+                    Circle()
+                        .fill(Color.red)
+                        .frame(width: 70, height: 70)
+                    Image(systemName: "plus")
+                        .foregroundColor(Color("NavigationBarColor"))
+                        .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                 }
-                .offset(x: -70, y: -35)
-                .accessibilityIdentifier("Edit")
             }
+            .offset(y: -35)
+            Spacer()
+            Button(action: self.editAction) {
+                ZStack {
+                    Circle()
+                        .fill(Color("ButtonBackground"))
+                        .frame(width: 50, height: 50)
+                    Image(systemName: "pencil")
+                        .foregroundColor(Color("NavigationBarColor"))
+                        .font(.title2)
+                }
+            }
+            .offset(x: -70, y: -35)
+            .accessibilityIdentifier("Edit")
         }
         .edgesIgnoringSafeArea(.bottom)
     }
 }
 
 struct ActionBar_Previews: PreviewProvider {
+    static func edit () {}
+    static func record () {}
     static var previews: some View {
-        Text("todo")
+        ActionBar(editAction: edit, record: record)
     }
 }
