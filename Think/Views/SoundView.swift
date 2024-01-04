@@ -58,7 +58,6 @@ struct SoundView: View {
             Spacer()
             ActionBar(editAction: self.openEditionModal, record: self.record).frame(alignment: .bottom)
         }
-        .background(Color("AccentColor"))
         .edgesIgnoringSafeArea(.bottom)
         .fullScreenCover(isPresented: $isModalPresented, content: {
             SoundEditionModal(
@@ -79,7 +78,6 @@ struct SoundView_Previews: PreviewProvider {
         sound.desc = "This is a sound"
         sound.createdAt = Date()
         sound.updatedAt = Date()
-        
         
         return SoundView(sound: Binding.constant(sound))
     }
