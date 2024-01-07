@@ -39,34 +39,22 @@ struct ListView: View {
                     subtitle: Text("ListView.subtitle"),
                     action: self.openModal
                 )
-                
-                List {
-                    if sounds.count > 0 {
-                        ForEach(self.sounds) { sound in
-                            // TODO: move section to SoundItem
-                            Section {
-                                HStack {
-                                    SoundItem(
-                                        title: sound.title!
-                                    )
-                                    NavigationLink(destination: SoundView(sound: Binding.constant(sound))) {
-                                        EmptyView()
-                                    }
-                                    .frame(width: 0)
-                                    .opacity(0)
-                                }
+                    List {
+                        if sounds.count > 0 {
+                            ForEach(self.sounds) { sound in
+                                SoundItem(
+                                    title: sound.title!,
+                                    destination: SoundView(sound: Binding.constant(sound))
+                                )
                             }
-                            .background(Color("ButtonBackground"))
-                            .listRowInsets(EdgeInsets())
+                            .onDelete(perform: self.deleteItem)
+                        } else {
+                            Text("ListView.fallback")
                         }
-                        .onDelete(perform: self.deleteItem)
-                    } else {
-                        Text("ListView.fallback")
                     }
+                    .scrollContentBackground(.hidden)
+                    .accessibilityIdentifier("SoundList")
                 }
-                .scrollContentBackground(.hidden)
-                .accessibilityIdentifier("SoundList")
-            }
         }
         .navigationViewStyle(StackNavigationViewStyle())
         .sheet(isPresented: $isModalPresented, content: {
