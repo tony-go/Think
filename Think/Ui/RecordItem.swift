@@ -36,6 +36,9 @@ struct RecordItem: View {
                             .font(.title2)
                     }
                 }
+                // We use PlainButtonStyle to the button ensures that the button's area is responsive
+                // to taps and doesn't conflict with the List's default behavior.
+                .buttonStyle(PlainButtonStyle())
                 // TODO: enbale override record later
 //                Button(action: {}) {
 //                    ZStack {
