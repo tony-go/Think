@@ -10,15 +10,15 @@ import SwiftUI
 struct SoundView: View {
     @Binding var sound: Sound
     @State private var isModalPresented = false
+    @State private var lastPosition: Int32 = 0
     @FetchRequest var records: FetchedResults<Record>
     
     init(sound: Binding<Sound>) {
-        print("init")
         self._sound = sound
         
         self._records = FetchRequest<Record>(
             entity: Record.entity(),
-            sortDescriptors: [],
+            sortDescriptors: [NSSortDescriptor(keyPath: \Record.position, ascending: true)],
             predicate: NSPredicate(format: "fromSound == %@", sound.wrappedValue)
         )
     }
@@ -33,8 +33,17 @@ struct SoundView: View {
     
     private func record() {
         print("Add new record")
-        // TODO: handle position properly
-        RecordEntity.create(at: 1, in: self.sound)
+        RecordEntity.create(at: self.lastPosition, in: self.sound)
+        self.lastPosition += 1
+    }
+    
+    private func delete(indexSet: IndexSet) {
+        let index = indexSet[indexSet.startIndex]
+        let id = self.records[index].id!
+        if let uuid = RecordEntity.delete(by: id) {
+            print("Record \(uuid) deleted!")
+            self.lastPosition -= 1
+        }
     }
 
     var body: some View {
@@ -48,13 +57,16 @@ struct SoundView: View {
                 )
             }.padding()
             Spacer()
-            ScrollView(.vertical) {
-                LazyVStack {
-                   ForEach(records, id: \.self) { record in
-                        RecordItem(label: record.label!, position: record.position)
-                   }
+            List {
+                ForEach(records, id: \.self) { record in
+                    RecordItem(label: record.label!, position: record.position)
+                        .listRowBackground(Color.clear)
                 }
-            }.padding(.horizontal)
+                .onMove(perform: self.move)
+                .onDelete(perform: self.delete)
+            }
+             .navigationBarItems(trailing: EditButton())
+             .listStyle(PlainListStyle())
             Spacer()
             ActionBar(editAction: self.openEditionModal, record: self.record).frame(alignment: .bottom)
         }
@@ -65,6 +77,23 @@ struct SoundView: View {
                 closeModal: self.closeEditionModal
             )
         })
+        .onAppear {
+            self.lastPosition = Int32(self.records.count + 1)
+        }
+    }
+    
+    private func move(from source: IndexSet, to destination: Int) {
+        var recordsCopy: [Record] = records.map { $0 }
+        
+        recordsCopy.move(fromOffsets: source, toOffset: destination)
+        
+        for index in recordsCopy.indices {
+            if let currentIndex = records.firstIndex(of: recordsCopy[index]) {
+                records[currentIndex].position = Int32(index + 1)
+            }
+        }
+        
+        RecordEntity.save(errorLog: "Error while changing order")
     }
 }
 
