@@ -11,14 +11,26 @@
 		EB0079D626A15A9100AA41B1 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EB0079D326A15A9100AA41B1 /* Roboto-Bold.ttf */; };
 		EB0079D726A15A9100AA41B1 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EB0079D426A15A9100AA41B1 /* Roboto-Medium.ttf */; };
 		EB0079DA26A15E4B00AA41B1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EB0079DC26A15E4B00AA41B1 /* Localizable.strings */; };
-		EB0079E126A1661C00AA41B1 /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0079E026A1661C00AA41B1 /* RecordView.swift */; };
+		EB0079E126A1661C00AA41B1 /* SoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0079E026A1661C00AA41B1 /* SoundView.swift */; };
+		EB0079E426A453A700AA41B1 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0079E326A453A700AA41B1 /* Header.swift */; };
 		EB3314E72698C0390072661C /* ThinkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3314E62698C0390072661C /* ThinkApp.swift */; };
 		EB3314E92698C0390072661C /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3314E82698C0390072661C /* ListView.swift */; };
 		EB3314EB2698C03B0072661C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB3314EA2698C03B0072661C /* Assets.xcassets */; };
 		EB3314EE2698C03B0072661C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB3314ED2698C03B0072661C /* Preview Assets.xcassets */; };
 		EB3314F92698C03B0072661C /* ThinkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3314F82698C03B0072661C /* ThinkTests.swift */; };
-		EB3315042698C03B0072661C /* ThinkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3315032698C03B0072661C /* ThinkUITests.swift */; };
+		EB3315042698C03B0072661C /* ListViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3315032698C03B0072661C /* ListViewTests.swift */; };
 		EB331514269A1AA10072661C /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB331513269A1AA10072661C /* Colors.xcassets */; };
+		EB5E6EEE271AD519006F7DE2 /* SoundCreationModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5E6EED271AD519006F7DE2 /* SoundCreationModal.swift */; };
+		EB5E6EF0271AD5C0006F7DE2 /* SoundEditionModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5E6EEF271AD5C0006F7DE2 /* SoundEditionModal.swift */; };
+		EB5E6EF2271AD617006F7DE2 /* ActionBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5E6EF1271AD617006F7DE2 /* ActionBar.swift */; };
+		EB5FD61E270592B5005D6009 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB5FD61D270592B5005D6009 /* Launch Screen.storyboard */; };
+		EB9335CC26B1F92C00689249 /* RecordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9335CB26B1F92C00689249 /* RecordItem.swift */; };
+		EB97074727212C9B009A91EB /* SoundViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB97074627212C9B009A91EB /* SoundViewTests.swift */; };
+		EBA83D5126B28C3F004040F4 /* SoundEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA83D5026B28C3F004040F4 /* SoundEntity.swift */; };
+		EBEE71002B2B0BDD00D49B8C /* RecordEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEE70FF2B2B0BDD00D49B8C /* RecordEntity.swift */; };
+		EBEE71022B2F02EF00D49B8C /* SoundItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEE71012B2F02EF00D49B8C /* SoundItem.swift */; };
+		EBFBBAF1270719AF00B48CE9 /* Store.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EBFBBAEF270719AF00B48CE9 /* Store.xcdatamodeld */; };
+		EBFBBAF327071B5500B48CE9 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFBBAF227071B5500B48CE9 /* PersistenceController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,7 +56,8 @@
 		EB0079D426A15A9100AA41B1 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		EB0079DB26A15E4B00AA41B1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EB0079DD26A15E5F00AA41B1 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
-		EB0079E026A1661C00AA41B1 /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
+		EB0079E026A1661C00AA41B1 /* SoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundView.swift; sourceTree = "<group>"; };
+		EB0079E326A453A700AA41B1 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		EB3314E32698C0390072661C /* Think.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Think.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB3314E62698C0390072661C /* ThinkApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThinkApp.swift; sourceTree = "<group>"; };
 		EB3314E82698C0390072661C /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
@@ -55,11 +68,22 @@
 		EB3314F82698C03B0072661C /* ThinkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThinkTests.swift; sourceTree = "<group>"; };
 		EB3314FA2698C03B0072661C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB3314FF2698C03B0072661C /* ThinkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThinkUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		EB3315032698C03B0072661C /* ThinkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThinkUITests.swift; sourceTree = "<group>"; };
+		EB3315032698C03B0072661C /* ListViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewTests.swift; sourceTree = "<group>"; };
 		EB3315052698C03B0072661C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB3315112698C7C40072661C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		EB331512269A19090072661C /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
 		EB331513269A1AA10072661C /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		EB5E6EED271AD519006F7DE2 /* SoundCreationModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundCreationModal.swift; sourceTree = "<group>"; };
+		EB5E6EEF271AD5C0006F7DE2 /* SoundEditionModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundEditionModal.swift; sourceTree = "<group>"; };
+		EB5E6EF1271AD617006F7DE2 /* ActionBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionBar.swift; sourceTree = "<group>"; };
+		EB5FD61D270592B5005D6009 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		EB9335CB26B1F92C00689249 /* RecordItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordItem.swift; sourceTree = "<group>"; };
+		EB97074627212C9B009A91EB /* SoundViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundViewTests.swift; sourceTree = "<group>"; };
+		EBA83D5026B28C3F004040F4 /* SoundEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundEntity.swift; sourceTree = "<group>"; };
+		EBEE70FF2B2B0BDD00D49B8C /* RecordEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordEntity.swift; sourceTree = "<group>"; };
+		EBEE71012B2F02EF00D49B8C /* SoundItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundItem.swift; sourceTree = "<group>"; };
+		EBFBBAF0270719AF00B48CE9 /* Store.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Store.xcdatamodel; sourceTree = "<group>"; };
+		EBFBBAF227071B5500B48CE9 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,7 +134,8 @@
 			isa = PBXGroup;
 			children = (
 				EB3314E82698C0390072661C /* ListView.swift */,
-				EB0079E026A1661C00AA41B1 /* RecordView.swift */,
+				EB0079E026A1661C00AA41B1 /* SoundView.swift */,
+				EB5FD61D270592B5005D6009 /* Launch Screen.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -122,6 +147,17 @@
 				EB3314EF2698C03B0072661C /* Info.plist */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EB0079E226A4539100AA41B1 /* Ui */ = {
+			isa = PBXGroup;
+			children = (
+				EB0079E326A453A700AA41B1 /* Header.swift */,
+				EB9335CB26B1F92C00689249 /* RecordItem.swift */,
+				EB5E6EF1271AD617006F7DE2 /* ActionBar.swift */,
+				EBEE71012B2F02EF00D49B8C /* SoundItem.swift */,
+			);
+			path = Ui;
 			sourceTree = "<group>";
 		};
 		EB3314DA2698C0390072661C = {
@@ -149,6 +185,10 @@
 		EB3314E52698C0390072661C /* Think */ = {
 			isa = PBXGroup;
 			children = (
+				EB5E6EEC271AD4F6006F7DE2 /* Modals */,
+				EBFBBAEE2707199500B48CE9 /* Storage */,
+				EBA83D4F26B28C10004040F4 /* Model */,
+				EB0079E226A4539100AA41B1 /* Ui */,
 				EB0079DF26A1653C00AA41B1 /* Supporting Files */,
 				EB0079DE26A164FE00AA41B1 /* Views */,
 				EB0079D026A15A4300AA41B1 /* Resources */,
@@ -179,10 +219,38 @@
 		EB3315022698C03B0072661C /* ThinkUITests */ = {
 			isa = PBXGroup;
 			children = (
-				EB3315032698C03B0072661C /* ThinkUITests.swift */,
+				EB3315032698C03B0072661C /* ListViewTests.swift */,
 				EB3315052698C03B0072661C /* Info.plist */,
+				EB97074627212C9B009A91EB /* SoundViewTests.swift */,
 			);
 			path = ThinkUITests;
+			sourceTree = "<group>";
+		};
+		EB5E6EEC271AD4F6006F7DE2 /* Modals */ = {
+			isa = PBXGroup;
+			children = (
+				EB5E6EED271AD519006F7DE2 /* SoundCreationModal.swift */,
+				EB5E6EEF271AD5C0006F7DE2 /* SoundEditionModal.swift */,
+			);
+			path = Modals;
+			sourceTree = "<group>";
+		};
+		EBA83D4F26B28C10004040F4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EBA83D5026B28C3F004040F4 /* SoundEntity.swift */,
+				EBEE70FF2B2B0BDD00D49B8C /* RecordEntity.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EBFBBAEE2707199500B48CE9 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				EBFBBAEF270719AF00B48CE9 /* Store.xcdatamodeld */,
+				EBFBBAF227071B5500B48CE9 /* PersistenceController.swift */,
+			);
+			path = Storage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -248,7 +316,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1250;
-				LastUpgradeCheck = 1250;
+				LastUpgradeCheck = 1300;
 				TargetAttributes = {
 					EB3314E22698C0390072661C = {
 						CreatedOnToolsVersion = 12.5.1;
@@ -291,6 +359,7 @@
 			files = (
 				EB331514269A1AA10072661C /* Colors.xcassets in Resources */,
 				EB3314EE2698C03B0072661C /* Preview Assets.xcassets in Resources */,
+				EB5FD61E270592B5005D6009 /* Launch Screen.storyboard in Resources */,
 				EB0079D726A15A9100AA41B1 /* Roboto-Medium.ttf in Resources */,
 				EB0079DA26A15E4B00AA41B1 /* Localizable.strings in Resources */,
 				EB0079D626A15A9100AA41B1 /* Roboto-Bold.ttf in Resources */,
@@ -320,9 +389,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB0079E426A453A700AA41B1 /* Header.swift in Sources */,
+				EB5E6EF2271AD617006F7DE2 /* ActionBar.swift in Sources */,
+				EBFBBAF1270719AF00B48CE9 /* Store.xcdatamodeld in Sources */,
+				EB5E6EF0271AD5C0006F7DE2 /* SoundEditionModal.swift in Sources */,
 				EB3314E92698C0390072661C /* ListView.swift in Sources */,
-				EB0079E126A1661C00AA41B1 /* RecordView.swift in Sources */,
+				EBEE71002B2B0BDD00D49B8C /* RecordEntity.swift in Sources */,
+				EBA83D5126B28C3F004040F4 /* SoundEntity.swift in Sources */,
+				EBEE71022B2F02EF00D49B8C /* SoundItem.swift in Sources */,
+				EB9335CC26B1F92C00689249 /* RecordItem.swift in Sources */,
+				EB5E6EEE271AD519006F7DE2 /* SoundCreationModal.swift in Sources */,
+				EB0079E126A1661C00AA41B1 /* SoundView.swift in Sources */,
 				EB3314E72698C0390072661C /* ThinkApp.swift in Sources */,
+				EBFBBAF327071B5500B48CE9 /* PersistenceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,7 +417,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB3315042698C03B0072661C /* ThinkUITests.swift in Sources */,
+				EB97074727212C9B009A91EB /* SoundViewTests.swift in Sources */,
+				EB3315042698C03B0072661C /* ListViewTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,6 +455,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -436,6 +517,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -497,7 +579,7 @@
 				DEVELOPMENT_TEAM = W4MF6H9XZ6;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Think/Supporting Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -519,7 +601,7 @@
 				DEVELOPMENT_TEAM = W4MF6H9XZ6;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Think/Supporting Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -539,7 +621,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W4MF6H9XZ6;
 				INFOPLIST_FILE = ThinkTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -561,7 +643,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W4MF6H9XZ6;
 				INFOPLIST_FILE = ThinkTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -582,6 +664,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W4MF6H9XZ6;
 				INFOPLIST_FILE = ThinkUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -602,6 +685,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W4MF6H9XZ6;
 				INFOPLIST_FILE = ThinkUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -655,6 +739,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		EBFBBAEF270719AF00B48CE9 /* Store.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				EBFBBAF0270719AF00B48CE9 /* Store.xcdatamodel */,
+			);
+			currentVersion = EBFBBAF0270719AF00B48CE9 /* Store.xcdatamodel */;
+			path = Store.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = EB3314DB2698C0390072661C /* Project object */;
 }

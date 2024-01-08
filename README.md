@@ -1,6 +1,6 @@
 #  Think iOs App
 
-![logo](Think!.png)
+[!logo](Think!.png)
 
 
 ## Description (todo)
